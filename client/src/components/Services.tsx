@@ -72,30 +72,9 @@ const services = [
   },
 ];
 
-const serviceMedia = [
-  {
-    src: "/images/sapphire/sapphire-onsite-healthcare-card.jpg",
-    alt: "On-site occupational health screening by Sapphire Health",
-    label: "Workforce Screening",
-    objectPosition: "center center",
-  },
-  {
-    src: "/images/sapphire/sapphire-industrial-response-card.jpg",
-    alt: "Sapphire Health emergency readiness support at an industrial site",
-    label: "Emergency Readiness",
-    objectPosition: "center 45%",
-  },
-  {
-    src: "/images/sapphire/sapphire-team-ppe-field-card.jpg",
-    alt: "Sapphire Health professional in PPE at a field operation",
-    label: "Field Deployment",
-    objectPosition: "center center",
-  },
-];
-
 export default function Services() {
   return (
-    <section id="services" className="bg-[#FAFBFC] py-20">
+    <section id="services" className="scroll-mt-24 bg-[#FAFBFC] py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-14 text-center">
@@ -111,37 +90,14 @@ export default function Services() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.08}>
-          <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {serviceMedia.map((item) => (
-              <figure
-                key={item.label}
-                className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-100 bg-[#4B1E1B]"
-              >
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="h-full w-full object-cover"
-                  style={{ objectPosition: item.objectPosition }}
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0D0C]/78 via-[#1A0D0C]/10 to-transparent" />
-                <figcaption className="absolute bottom-0 left-0 right-0 px-5 py-4 text-sm font-semibold text-white">
-                  {item.label}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 lg:grid-cols-4">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <ScrollReveal key={service.title} delay={index * 0.05}>
                 <motion.div
-                  className="group flex h-full flex-col rounded-lg border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-[#4B1E1B]/20 hover:shadow-lg"
+                  className="group flex h-full min-w-[78vw] snap-start flex-col rounded-lg border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-[#4B1E1B]/20 hover:shadow-lg sm:min-w-[46vw] md:min-w-0"
                   whileHover={{ y: -4 }}
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-[#4B1E1B]/10 transition-colors duration-300 group-hover:bg-[#4B1E1B]">
@@ -163,6 +119,11 @@ export default function Services() {
                       </span>
                     ))}
                   </div>
+                  <Link href="/corporate-inquiry">
+                    <span className="mt-5 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-[#9E3C34] transition-colors hover:text-[#4B1E1B]">
+                      Learn More <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </Link>
                 </motion.div>
               </ScrollReveal>
             );

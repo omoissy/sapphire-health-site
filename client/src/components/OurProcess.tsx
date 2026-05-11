@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MessageSquare, FileSearch, Users, MapPin, BarChart3, CheckCircle } from "lucide-react";
+import { MessageSquare, FileSearch, Users, BarChart3, CheckCircle } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const steps = [
@@ -8,42 +8,28 @@ const steps = [
     step: "01",
     title: "Initial Enquiry",
     description:
-      "You reach out via phone, email, or our inquiry form. We respond within 24 hours to understand your site, headcount, duration, and regulatory requirements.",
+      "We confirm your site, headcount, duration, risk profile, and timeline.",
   },
   {
     icon: FileSearch,
     step: "02",
-    title: "Needs Assessment",
+    title: "Assess & Scope",
     description:
-      "Our clinical team conducts a structured assessment of your operational environment — identifying hazards, compliance gaps, and medical coverage requirements.",
-  },
-  {
-    icon: FileSearch,
-    step: "03",
-    title: "Proposal & MERP",
-    description:
-      "We deliver a formal proposal with service scope, staffing plan, MERP outline, and pricing — tailored to your specific operation and DPR/NUPRC requirements.",
+      "Our clinical team maps the required service scope, staffing plan, equipment, and documentation.",
   },
   {
     icon: Users,
-    step: "04",
-    title: "Team Mobilisation",
+    step: "03",
+    title: "Mobilise Team",
     description:
-      "Once approved, our certified paramedics and health professionals are briefed, equipped, and deployed to your site — ready before your crew arrives.",
-  },
-  {
-    icon: MapPin,
-    step: "05",
-    title: "On-Site Delivery",
-    description:
-      "We provide continuous medical coverage: fitness-for-work checks, daily health monitoring, incident management, and immediate emergency response as required.",
+      "Approved teams are briefed, equipped, and deployed for on-site coverage or mobile clinic delivery.",
   },
   {
     icon: BarChart3,
-    step: "06",
-    title: "Reporting & Review",
+    step: "04",
+    title: "Report & Improve",
     description:
-      "On completion, you receive a comprehensive health report covering incidents, screening outcomes, compliance status, and recommendations for future deployments.",
+      "You receive structured records, incident notes, outcomes, and recommendations after delivery.",
   },
 ];
 
@@ -60,7 +46,7 @@ export default function OurProcess() {
               From Enquiry to Deployment in Days, Not Weeks
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We move fast because your operations can't wait. Here's how we take you from first contact to a fully compliant medical team on the ground.
+              A compact process keeps decisions moving without burying visitors in operational detail.
             </p>
           </div>
         </ScrollReveal>
@@ -69,18 +55,18 @@ export default function OurProcess() {
           {/* Connector line (desktop) */}
           <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#4B1E1B]/20 to-transparent" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
                 <ScrollReveal key={step.step} delay={i * 0.1}>
                   <motion.div
                     whileHover={{ y: -3 }}
-                    className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#4B1E1B]/20 hover:shadow-md transition-all duration-300 relative"
+                    className="relative min-h-[240px] min-w-[78vw] snap-start rounded-lg border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-[#4B1E1B]/20 hover:shadow-md sm:min-w-[330px] lg:min-w-0"
                   >
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-[#4B1E1B] flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-5 h-5 text-white" />
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md bg-[#4B1E1B]">
+                        <Icon className="h-5 w-5 text-white" />
                       </div>
                       <span className="text-4xl font-black text-[#4B1E1B]/10 leading-none mt-1">
                         {step.step}

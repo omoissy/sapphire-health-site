@@ -3,15 +3,9 @@ import Footer from "@/components/Footer";
 import EmergencyBanner from "@/components/EmergencyBanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
+import LeadershipPreview from "@/components/LeadershipPreview";
 import { Link } from "wouter";
-import { ArrowRight, User } from "lucide-react";
-
-const team = [
-  { name: "Dr. Oluwasanmi Oluwatobi Mercy", role: "Chief Executive Officer", initials: "OM" },
-  { name: "Dr. Daramola Somoto", role: "Chief Operating Officer", initials: "DS" },
-  { name: "Engr. Israel Omoniyi", role: "Head of Strategy, Finance & Technology", initials: "IO" },
-  { name: "Dr. Oluwasanmi Ademola Samuel", role: "Medical Director", initials: "AS" },
-];
+import { ArrowRight } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -67,30 +61,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Team */}
-        <section className="py-20 bg-[#FAFBFC]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <ScrollReveal>
-              <div className="text-center mb-12">
-                <span className="inline-block text-xs font-semibold tracking-widest text-[#9E3C34] uppercase mb-3">Our Team</span>
-                <h2 className="text-3xl font-bold text-[#4B1E1B]">Leadership</h2>
-              </div>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {team.map((member, i) => (
-                <ScrollReveal key={member.name} delay={i * 0.1}>
-                  <div className="bg-white rounded-2xl p-6 border border-gray-100 text-center hover:shadow-md transition-all">
-                    <div className="w-16 h-16 rounded-full bg-[#4B1E1B] flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-bold text-lg">{member.initials}</span>
-                    </div>
-                    <h3 className="font-semibold text-[#4B1E1B] text-sm leading-snug mb-1">{member.name}</h3>
-                    <p className="text-xs text-gray-500">{member.role}</p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        </section>
+        <LeadershipPreview />
 
         {/* CTA */}
         <section className="py-16 bg-[#4B1E1B]">

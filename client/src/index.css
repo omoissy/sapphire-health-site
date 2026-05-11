@@ -82,3 +82,46 @@ textarea,
 select {
   font: inherit;
 }
+
+@keyframes proof-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.proof-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.proof-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: proof-marquee 38s linear infinite;
+}
+
+.proof-marquee:hover .proof-marquee-track {
+  animation-play-state: paused;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .proof-marquee-track {
+    animation: none;
+  }
+}

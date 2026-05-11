@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function LiveHealthTracker() {
   return (
-    <section className="py-16 bg-gradient-to-r from-[#2D1210] to-[#4B1E1B]">
+    <section id="contact" className="scroll-mt-24 py-16 bg-gradient-to-r from-[#2D1210] to-[#4B1E1B]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">

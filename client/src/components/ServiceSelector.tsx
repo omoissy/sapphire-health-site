@@ -3,6 +3,8 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Building2, Factory, Fuel, HardHat, Landmark, Network, RadioTower, Truck } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import IconBadge from "@/components/ui/icon-badge";
+import SectionHeading from "@/components/ui/section-heading";
 
 const sectors = [
   {
@@ -65,15 +67,11 @@ export default function ServiceSelector() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-12 text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-              Coverage Planner
-            </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#4B1E1B] sm:text-4xl">
-              Match Medical Coverage to Your Operating Environment
-            </h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              Different workforces need different clinical coverage. Sapphire scopes the service around your risk profile, location, duration, and workforce size.
-            </p>
+            <SectionHeading
+              eyebrow="Coverage Planner"
+              title="Match Medical Coverage to Your Operating Environment"
+              description="Different workforces need different clinical coverage. Sapphire scopes the service around your risk profile, location, duration, and workforce size."
+            />
           </div>
         </ScrollReveal>
 
@@ -94,9 +92,7 @@ export default function ServiceSelector() {
                       : "border-gray-200 bg-white text-gray-700 hover:border-[#4B1E1B]/30"
                   }`}
                 >
-                  <span className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md ${selected ? "bg-white/20" : "bg-[#4B1E1B]/10"}`}>
-                    <Icon className={`h-5 w-5 ${selected ? "text-white" : "text-[#4B1E1B]"}`} />
-                  </span>
+                  <IconBadge icon={Icon} tone={selected ? "light" : "maroon"} size="sm" />
                   <span>
                     <span className="block text-sm font-semibold">{sector.label}</span>
                     <span className={`mt-1 block text-xs leading-relaxed ${selected ? "text-white/70" : "text-gray-500"}`}>

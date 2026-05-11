@@ -1,4 +1,5 @@
 import ScrollReveal from "@/components/ScrollReveal";
+import SectionHeading from "@/components/ui/section-heading";
 
 const fieldPhotos = [
   {
@@ -29,18 +30,15 @@ const fieldPhotos = [
 
 export default function FieldGallery() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-                Field Proof
-              </span>
-              <h2 className="text-3xl font-bold text-[#4B1E1B] sm:text-4xl">
-                Care Delivered Where Work Happens
-              </h2>
-            </div>
+            <SectionHeading
+              align="left"
+              eyebrow="Field Proof"
+              title="Care Delivered Where Work Happens"
+            />
             <p className="max-w-md text-sm leading-relaxed text-gray-500">
               A compact view of the field environments Sapphire supports, without turning the homepage into a long photo archive.
             </p>
@@ -52,7 +50,7 @@ export default function FieldGallery() {
             {fieldPhotos.map((photo) => (
               <figure
                 key={photo.src}
-                className="group relative aspect-[4/3] min-w-[78vw] snap-start overflow-hidden rounded-lg border border-gray-100 bg-[#4B1E1B] sm:min-w-[420px] lg:min-w-[31%]"
+                className="group relative aspect-[4/3] min-w-[78vw] snap-start overflow-hidden rounded-2xl border border-white bg-[#4B1E1B] shadow-xl shadow-[#4B1E1B]/10 sm:min-w-[420px] lg:min-w-[31%]"
               >
                 <img
                   src={photo.src}
@@ -61,9 +59,11 @@ export default function FieldGallery() {
                   style={{ objectPosition: photo.objectPosition }}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0D0C]/82 via-[#1A0D0C]/12 to-transparent opacity-90" />
-                <figcaption className="absolute bottom-0 left-0 right-0 px-5 py-4 text-sm font-semibold text-white">
-                  {photo.caption}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A0D0C]/90 via-[#1A0D0C]/15 to-transparent opacity-90" />
+                <figcaption className="absolute bottom-0 left-0 right-0 px-5 py-5">
+                  <span className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                    {photo.caption}
+                  </span>
                 </figcaption>
               </figure>
             ))}

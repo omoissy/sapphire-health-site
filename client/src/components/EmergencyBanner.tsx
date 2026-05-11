@@ -3,22 +3,22 @@ import { CONTACT_INFO } from "@/config/contact";
 
 export default function EmergencyBanner() {
   return (
-    <div className="bg-[#4B1E1B] text-white py-2 px-4 text-center text-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 flex-wrap">
+    <div className="bg-[#4B1E1B] px-4 py-2 text-center text-xs text-white sm:text-sm">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1">
         <span className="flex items-center gap-1.5 font-medium">
-          <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+          <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
           24/7 Medical Emergency Response
         </span>
         <span className="hidden sm:block text-white/40">|</span>
         <a
           href={`tel:${CONTACT_INFO.emergency.tel}`}
-          className="flex items-center gap-1.5 font-bold hover:text-amber-300 transition-colors"
+          className="flex basis-full items-center justify-center gap-1.5 font-bold transition-colors hover:text-amber-300 sm:basis-auto"
         >
-          <Phone className="w-3.5 h-3.5" />
+          <Phone className="h-3.5 w-3.5" />
           {CONTACT_INFO.emergency.display}
         </a>
         <span className="hidden sm:block text-white/40">|</span>
-        <span className="text-white/70 text-xs">Offshore · Onshore · Construction · Events</span>
+        <span className="basis-full text-white/70 sm:basis-auto">Offshore · Onshore · Construction · Events</span>
       </div>
     </div>
   );

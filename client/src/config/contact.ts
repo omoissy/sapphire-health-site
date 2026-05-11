@@ -2,12 +2,12 @@
 
 export const CONTACT_INFO = {
   phone: {
-    display: "08067316717",
-    tel: "08067316717",
+    display: "+234 806 731 6717",
+    tel: "+2348067316717",
   },
   emergency: {
-    display: "08067316717",
-    tel: "08067316717",
+    display: "+234 806 731 6717",
+    tel: "+2348067316717",
   },
   whatsapp: {
     number: "2348067316717",

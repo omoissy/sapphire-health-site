@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import SectionHeading from "@/components/ui/section-heading";
+import TestimonialCard from "@/components/ui/testimonial-card";
 
 const testimonials = [
   {
@@ -43,14 +45,12 @@ export default function Testimonials() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <div>
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-white/50">
-                Testimonials
-              </span>
-              <h2 className="max-w-2xl text-3xl font-bold text-white sm:text-4xl">
-                Feedback from People We Have Supported
-              </h2>
-            </div>
+            <SectionHeading
+              align="left"
+              inverse
+              eyebrow="Testimonials"
+              title="Feedback from People We Have Supported"
+            />
             <div className="flex items-center gap-2">
               <button
                 type="button"
@@ -75,23 +75,12 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {visibleTestimonials.map((testimonial, index) => (
             <ScrollReveal key={`${testimonial.source}-${active}`} delay={index * 0.06}>
-              <article className={`${index > 0 ? "hidden md:flex" : "flex"} min-h-[260px] flex-col rounded-lg border border-white/10 bg-white/[0.08] p-6 backdrop-blur-sm`}>
-                <Quote className="mb-5 h-8 w-8 text-[#F0B8B0]" />
-                <p className="flex-1 text-lg leading-relaxed text-white/90">
-                  "{testimonial.quote}"
-                </p>
-                <div className="mt-6 flex items-center justify-between gap-4">
-                  <p className="text-sm font-medium text-white/60">{testimonial.source}</p>
-                  <div className="flex gap-1">
-                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                      <Star
-                        key={starIndex}
-                        className="h-4 w-4 fill-amber-400 text-amber-400"
-                      />
-                    ))}
-                  </div>
-                </div>
-              </article>
+              <TestimonialCard
+                dark
+                quote={testimonial.quote}
+                source={testimonial.source}
+                className={index > 0 ? "hidden md:flex" : "flex"}
+              />
             </ScrollReveal>
           ))}
         </div>

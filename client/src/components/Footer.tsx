@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { CONTACT_INFO } from "@/config/contact";
 import SapphireLogo from "@/components/SapphireLogo";
+import CTAButton from "@/components/ui/cta-button";
 
 const footerLinks = {
   Services: [
@@ -46,10 +47,10 @@ export default function Footer() {
   )}`;
 
   return (
-    <footer className="bg-[#1A0D0C] text-white">
+    <footer className="bg-[#120908] text-white">
       <div className="mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
-        <div className="mb-12 grid grid-cols-1 gap-10 lg:grid-cols-5">
-          <div className="lg:col-span-2">
+        <div className="mb-12 grid grid-cols-1 gap-10 lg:grid-cols-[1.35fr_1fr_1fr_1fr]">
+          <div>
             <SapphireLogo
               tone="light"
               variant="lockup"
@@ -61,27 +62,6 @@ export default function Footer() {
               Professional healthcare support for organizations, communities, events, and remote workforces that need care closer to where work happens.
             </p>
 
-            <div className="space-y-2.5">
-              <a
-                href={`tel:${CONTACT_INFO.phone.tel}`}
-                className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
-              >
-                <Phone className="h-4 w-4 flex-shrink-0 text-[#F0B8B0]" />
-                {CONTACT_INFO.phone.display}
-              </a>
-              <a
-                href={`mailto:${CONTACT_INFO.email.general}`}
-                className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
-              >
-                <Mail className="h-4 w-4 flex-shrink-0 text-[#F0B8B0]" />
-                {CONTACT_INFO.email.general}
-              </a>
-              <div className="flex items-start gap-2.5 text-sm text-white/70">
-                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#F0B8B0]" />
-                <span>{CONTACT_INFO.addresses.lagos.address}</span>
-              </div>
-            </div>
-
             <div className="mt-6 flex gap-3">
               {[
                 { icon: Instagram, href: CONTACT_INFO.social.instagram, label: "Instagram" },
@@ -92,7 +72,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-md bg-white/5 transition-colors hover:bg-[#4B1E1B]"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 transition-colors hover:bg-[#4B1E1B]"
                   aria-label={label}
                 >
                   <Icon className="h-4 w-4" />
@@ -118,28 +98,46 @@ export default function Footer() {
 
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/40">
-              Quick Contact
+              Contact
             </h4>
+            <div className="mb-5 space-y-3">
+              <a
+                href={`tel:${CONTACT_INFO.phone.tel}`}
+                className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
+              >
+                <Phone className="h-4 w-4 flex-shrink-0 text-[#F0B8B0]" />
+                {CONTACT_INFO.phone.display}
+              </a>
+              <a
+                href={`mailto:${CONTACT_INFO.email.general}`}
+                className="flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-white"
+              >
+                <Mail className="h-4 w-4 flex-shrink-0 text-[#F0B8B0]" />
+                {CONTACT_INFO.email.general}
+              </a>
+              <div className="flex items-start gap-2.5 text-sm text-white/70">
+                <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#F0B8B0]" />
+                <span>{CONTACT_INFO.addresses.lagos.address}</span>
+              </div>
+            </div>
             <div className="space-y-3">
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20BA5A]"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#20BA5A]"
               >
                 <MessageCircle className="h-4 w-4" />
                 Chat on WhatsApp
               </a>
-              <Link href="/corporate-inquiry">
-                <span className="inline-flex w-full cursor-pointer items-center justify-center rounded-md bg-white px-4 py-3 text-sm font-semibold text-[#4B1E1B] transition-colors hover:bg-white/90">
-                  Request a Consultation
-                </span>
-              </Link>
+              <CTAButton href="/corporate-inquiry" variant="light" className="w-full min-h-11 rounded-xl py-2.5">
+                Request a Consultation
+              </CTAButton>
             </div>
           </div>
         </div>
 
-        <div className="mb-8 flex flex-col items-center justify-between gap-3 rounded-lg border border-[#4B1E1B] p-4 sm:flex-row">
+        <div className="mb-8 flex flex-col items-center justify-between gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-5 sm:flex-row">
           <div>
             <p className="text-sm font-semibold text-white">24/7 Medical Emergency Response</p>
             <p className="mt-0.5 text-xs text-white/50">

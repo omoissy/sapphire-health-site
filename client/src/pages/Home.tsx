@@ -1,6 +1,7 @@
 import EmergencyBanner from "@/components/EmergencyBanner";
 import PublicNav from "@/components/PublicNav";
 import HeroSlider from "@/components/HeroSlider";
+import QuickActionStrip from "@/components/QuickActionStrip";
 import PartnerLogos from "@/components/PartnerLogos";
 import Services from "@/components/Services";
 import OurProcess from "@/components/OurProcess";
@@ -19,6 +20,7 @@ export default function Home() {
       <PublicNav />
       <main>
         <HeroSlider />
+        <QuickActionStrip />
         <PartnerLogos />
         <Services />
         <OurProcess />

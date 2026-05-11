@@ -12,10 +12,15 @@ import {
   Video,
 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import IconBadge from "@/components/ui/icon-badge";
+import PremiumCard from "@/components/ui/premium-card";
+import SectionHeading from "@/components/ui/section-heading";
+import CTAButton from "@/components/ui/cta-button";
 
 const services = [
   {
     icon: Stethoscope,
+    tone: "maroon" as const,
     title: "On-Site Medical Support & Mobile Clinics",
     description:
       "Qualified clinical teams and mobile clinic setups for workplaces, project sites, communities, and remote operations.",
@@ -23,6 +28,7 @@ const services = [
   },
   {
     icon: Activity,
+    tone: "green" as const,
     title: "Emergency Medical Response",
     description:
       "Rapid assessment, stabilisation, escalation, referral coordination, and emergency readiness for higher-risk environments.",
@@ -30,6 +36,7 @@ const services = [
   },
   {
     icon: ClipboardCheck,
+    tone: "blue" as const,
     title: "Occupational Health Screening",
     description:
       "Pre-employment, pre-mobilisation, fitness-for-work, periodic medicals, and role-specific workforce screening.",
@@ -37,6 +44,7 @@ const services = [
   },
   {
     icon: HeartPulse,
+    tone: "amber" as const,
     title: "Preventive Health & Wellness Programmes",
     description:
       "Health talks, screenings, wellness days, chronic disease risk checks, and staff education programmes.",
@@ -44,6 +52,7 @@ const services = [
   },
   {
     icon: Video,
+    tone: "teal" as const,
     title: "Telemedicine Support",
     description:
       "Remote clinical guidance and follow-up support for workforces that need faster access to medical advice.",
@@ -51,6 +60,7 @@ const services = [
   },
   {
     icon: GraduationCap,
+    tone: "blue" as const,
     title: "Health & Safety Training",
     description:
       "Practical first aid, emergency readiness, site health awareness, and workforce health and safety sessions.",
@@ -58,6 +68,7 @@ const services = [
   },
   {
     icon: ClipboardList,
+    tone: "maroon" as const,
     title: "Incident Documentation & Reporting",
     description:
       "Clear medical incident records, handover notes, service reports, and operational health documentation.",
@@ -65,6 +76,7 @@ const services = [
   },
   {
     icon: ShieldCheck,
+    tone: "green" as const,
     title: "Event / Project Medical Coverage",
     description:
       "Medical planning and standby clinical teams for corporate events, community programmes, competitions, and projects.",
@@ -74,20 +86,15 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="scroll-mt-24 bg-[#FAFBFC] py-20">
+    <section id="services" className="scroll-mt-24 bg-[linear-gradient(180deg,#FAFBFC_0%,#FFFFFF_100%)] py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="mb-14 text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-              Services
-            </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#4B1E1B] sm:text-4xl">
-              Medical Support Built Around Your Workforce
-            </h2>
-            <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600">
-              Sapphire Health combines clinical care, field readiness, prevention, documentation, and emergency response into service scopes that fit real operating environments.
-            </p>
-          </div>
+          <SectionHeading
+            className="mb-14"
+            eyebrow="Services"
+            title="Medical Support Built Around Your Workforce"
+            description="Sapphire Health combines clinical care, field readiness, prevention, documentation, and emergency response into service scopes that fit real operating environments."
+          />
         </ScrollReveal>
 
         <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 lg:grid-cols-4">
@@ -96,34 +103,32 @@ export default function Services() {
 
             return (
               <ScrollReveal key={service.title} delay={index * 0.05}>
-                <motion.div
-                  className="group flex h-full min-w-[78vw] snap-start flex-col rounded-lg border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-[#4B1E1B]/20 hover:shadow-lg sm:min-w-[46vw] md:min-w-0"
-                  whileHover={{ y: -4 }}
-                >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-[#4B1E1B]/10 transition-colors duration-300 group-hover:bg-[#4B1E1B]">
-                    <Icon className="h-6 w-6 text-[#4B1E1B] transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <h3 className="mb-2 font-semibold leading-snug text-[#4B1E1B]">
-                    {service.title}
-                  </h3>
-                  <p className="flex-1 text-sm leading-relaxed text-gray-500">
-                    {service.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-[#4B1E1B]/5 px-2 py-0.5 text-[10px] font-medium text-[#4B1E1B]"
-                      >
-                        {tag}
+                <motion.div whileHover={{ y: -4 }} className="h-full min-w-[78vw] snap-start sm:min-w-[46vw] md:min-w-0">
+                  <PremiumCard className="group relative flex h-full min-h-[300px] flex-col overflow-hidden p-6">
+                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#4B1E1B] via-[#9E3C34] to-[#D9A441]" />
+                    <IconBadge icon={Icon} tone={service.tone} size="lg" className="mb-5" />
+                    <h3 className="mb-2 font-semibold leading-snug text-[#4B1E1B]">
+                      {service.title}
+                    </h3>
+                    <p className="flex-1 text-sm leading-relaxed text-gray-500">
+                      {service.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {service.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full bg-[#4B1E1B]/5 px-2 py-0.5 text-[10px] font-medium text-[#4B1E1B]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <Link href="/corporate-inquiry">
+                      <span className="mt-5 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-[#9E3C34] transition-colors hover:text-[#4B1E1B]">
+                        Learn More <ArrowRight className="h-3.5 w-3.5" />
                       </span>
-                    ))}
-                  </div>
-                  <Link href="/corporate-inquiry">
-                    <span className="mt-5 inline-flex cursor-pointer items-center gap-1.5 text-sm font-semibold text-[#9E3C34] transition-colors hover:text-[#4B1E1B]">
-                      Learn More <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
-                  </Link>
+                    </Link>
+                  </PremiumCard>
                 </motion.div>
               </ScrollReveal>
             );
@@ -132,22 +137,12 @@ export default function Services() {
 
         <ScrollReveal delay={0.25}>
           <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/corporate-inquiry">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 rounded-md bg-[#4B1E1B] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#9E3C34]"
-              >
-                Request a Consultation
-                <ArrowRight className="h-4 w-4" />
-              </motion.button>
-            </Link>
-            <a
-              href="/#contact"
-              className="inline-flex items-center rounded-md border border-[#4B1E1B]/20 px-8 py-3.5 text-sm font-semibold text-[#4B1E1B] transition-colors hover:bg-[#4B1E1B]/5"
-            >
+            <CTAButton href="/corporate-inquiry">
+              Request a Consultation <ArrowRight className="h-4 w-4" />
+            </CTAButton>
+            <CTAButton href="/#contact" variant="secondary">
               Talk to the Team
-            </a>
+            </CTAButton>
           </div>
         </ScrollReveal>
       </div>

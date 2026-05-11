@@ -7,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CONTACT_INFO } from "@/config/contact";
 import SapphireLogo from "@/components/SapphireLogo";
+import IconBadge from "@/components/ui/icon-badge";
+import PremiumCard from "@/components/ui/premium-card";
+import SectionHeading from "@/components/ui/section-heading";
 
 type ContactForm = {
   name: string;
@@ -90,23 +93,18 @@ export default function Contact() {
     <section id="contact" className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="mb-14 text-center">
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-              Get in Touch
-            </span>
-            <h2 className="mb-4 text-3xl font-bold text-[#4B1E1B] sm:text-4xl">
-              Talk to Our Team
-            </h2>
-            <p className="mx-auto max-w-xl text-gray-600">
-              Whether you need a formal proposal, a quick question answered, or an urgent deployment, we are available. Reach out and we will respond within 24 hours.
-            </p>
-          </div>
+          <SectionHeading
+            className="mb-14"
+            eyebrow="Get in Touch"
+            title="Talk to Our Team"
+            description="Whether you need a formal proposal, a quick question answered, or an urgent deployment, we are available. Reach out and we will respond within 24 hours."
+          />
         </ScrollReveal>
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <ScrollReveal direction="left">
             <div className="space-y-6">
-              <div className="rounded-lg border border-gray-100 bg-[#FAFBFC] p-5">
+              <PremiumCard className="p-5">
                 <SapphireLogo
                   variant="lockup"
                   imageBoxClassName="h-24 w-44 p-3"
@@ -115,16 +113,14 @@ export default function Contact() {
                 <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-600">
                   Clinical support, emergency readiness, and workforce health coordination for organizations that need care closer to operations.
                 </p>
-              </div>
+              </PremiumCard>
 
               {contactDetails.map((detail) => {
                 const Icon = detail.icon;
 
                 return (
                   <div key={detail.label} className="flex items-start gap-4">
-                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-[#4B1E1B]/10">
-                      <Icon className="h-5 w-5 text-[#4B1E1B]" />
-                    </div>
+                    <IconBadge icon={Icon} tone="light" size="sm" />
                     <div>
                       <p className="mb-0.5 text-xs font-medium uppercase tracking-wide text-gray-400">
                         {detail.label}
@@ -159,7 +155,7 @@ export default function Contact() {
                 Chat on WhatsApp
               </a>
 
-              <div className="flex h-52 items-center justify-center overflow-hidden rounded-lg border border-gray-100 bg-[#F5F7FA]">
+              <div className="flex h-52 items-center justify-center overflow-hidden rounded-2xl border border-[#4B1E1B]/10 bg-[#F5F7FA]">
                 <div className="text-center text-gray-500">
                   <MapPin className="mx-auto mb-2 h-8 w-8 text-[#4B1E1B]/40" />
                   <p className="text-sm font-medium">11A Van Daniel's Estate</p>
@@ -194,7 +190,7 @@ export default function Contact() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="space-y-4 rounded-lg border border-gray-100 bg-[#FAFBFC] p-6 sm:p-8"
+                className="space-y-4 rounded-2xl border border-[#4B1E1B]/10 bg-[#FAFBFC] p-6 shadow-sm sm:p-8"
               >
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>

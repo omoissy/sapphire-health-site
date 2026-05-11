@@ -1,8 +1,8 @@
-import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, MessageCircle, Shield, Stethoscope, Users2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle2, MessageCircle, ShieldCheck, Stethoscope, Users2 } from "lucide-react";
 import { CONTACT_INFO } from "@/config/contact";
+import CTAButton from "@/components/ui/cta-button";
+import IconBadge from "@/components/ui/icon-badge";
 
 const heroImage = "/images/sapphire/sapphire-field-medical-hero.jpg";
 
@@ -15,7 +15,7 @@ const stats = [
 
 const proofPoints = [
   { icon: Stethoscope, label: "On-site medics and mobile clinics" },
-  { icon: Shield, label: "Occupational health and HSE support" },
+  { icon: ShieldCheck, label: "Occupational health and HSE support" },
   { icon: Users2, label: "Workforce groups, events, and remote sites" },
 ];
 
@@ -29,53 +29,46 @@ export default function HeroSlider() {
       <img
         src={heroImage}
         alt="Sapphire Health medical team and mobile clinic support"
-        className="absolute inset-0 h-full w-full object-cover object-[58%_center]"
+        className="absolute inset-0 h-full w-full object-cover object-[60%_center] md:object-[58%_center]"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#1A0D0C]/95 via-[#4B1E1B]/86 to-[#4B1E1B]/35" />
+      <div className="absolute inset-0 bg-[linear-gradient(100deg,rgba(26,13,12,0.98)_0%,rgba(75,30,27,0.9)_42%,rgba(75,30,27,0.42)_72%,rgba(20,40,48,0.3)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-[#1A0D0C]/90 to-transparent" />
 
       <div className="relative z-10 flex min-h-[86vh] items-center">
-        <div className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-4xl"
+            className="w-full max-w-4xl"
+            style={{ width: "min(56rem, calc(100vw - 2rem))" }}
           >
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
-              <CheckCircle2 className="h-4 w-4 text-[#F0B8B0]" />
-              Occupational health, emergency response, and field medical coverage
+            <div className="mb-5 inline-flex max-w-full items-start gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-black/10 backdrop-blur-sm sm:items-center sm:rounded-full">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#F0B8B0] sm:mt-0" />
+              <span className="min-w-0 break-words">
+                Occupational health, emergency response, and field medical coverage
+              </span>
             </div>
 
-            <h1 className="max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-full break-words text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
               Wherever work takes you, Sapphire Health brings care closer.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
-              Sapphire Health Services Limited supports organisations with on-site medical teams, mobile clinics, workforce screening, emergency response, wellness programmes, and clinical documentation that helps operations continue safely.
+            <p className="mt-6 max-w-full text-base leading-relaxed text-white/80 sm:max-w-2xl sm:text-lg">
+              Wherever people work, care should follow. Sapphire Health supports organizations with on-site medical teams, mobile clinics, emergency response, workforce screening, wellness programmes, and clinical documentation that keeps operations moving safely.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/corporate-inquiry">
-                <Button size="lg" className="bg-white text-[#4B1E1B] hover:bg-white/90">
-                  Request a Consultation
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </Link>
-              <a
-                href="/#services"
-                className="inline-flex h-12 items-center justify-center rounded-md border border-white/35 bg-white/10 px-6 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
-              >
-                Explore Our Services
-              </a>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[#25D366] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#20BA5A]"
-              >
+              <CTAButton href="/corporate-inquiry" variant="light" className="w-full sm:w-auto">
+                Request a Consultation <ArrowRight className="h-4 w-4" />
+              </CTAButton>
+              <CTAButton href="/#services" variant="secondary" className="w-full border-white/35 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 sm:w-auto">
+                Explore Services
+              </CTAButton>
+              <CTAButton href={whatsappUrl} variant="whatsapp" external className="w-full sm:w-auto">
                 <MessageCircle className="h-4 w-4" />
                 Chat on WhatsApp
-              </a>
+              </CTAButton>
             </div>
 
             <div className="mt-10 grid max-w-3xl grid-cols-1 gap-3 sm:grid-cols-3">
@@ -85,9 +78,9 @@ export default function HeroSlider() {
                 return (
                   <div
                     key={point.label}
-                    className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/10 px-4 py-3 text-sm text-white/80 backdrop-blur-sm"
+                    className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white/80 shadow-lg shadow-black/10 backdrop-blur-sm"
                   >
-                    <Icon className="h-5 w-5 flex-shrink-0 text-[#F0B8B0]" />
+                    <IconBadge icon={Icon} tone="light" size="sm" className="shadow-black/10" />
                     {point.label}
                   </div>
                 );
@@ -97,7 +90,7 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      <div className="relative z-10 border-t border-white/10 bg-[#1A0D0C]/86 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-white/10 bg-[#1A0D0C]/90 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 divide-x divide-white/10 md:grid-cols-4">
             {stats.map((stat) => (

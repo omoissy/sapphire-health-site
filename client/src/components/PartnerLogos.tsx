@@ -1,57 +1,59 @@
 import { Building2, Factory, Fuel, HardHat, Landmark, Network, RadioTower, Truck } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import CTAButton from "@/components/ui/cta-button";
+import IconBadge from "@/components/ui/icon-badge";
+import PremiumCard from "@/components/ui/premium-card";
+import SectionHeading from "@/components/ui/section-heading";
 
 const sectors = [
-  { icon: Fuel, label: "Oil & Gas" },
-  { icon: HardHat, label: "Construction & Engineering" },
-  { icon: Factory, label: "Mining & Exploration" },
-  { icon: Truck, label: "Logistics & Transport" },
-  { icon: RadioTower, label: "Telecommunications & Infrastructure" },
-  { icon: Building2, label: "Corporate Organizations" },
-  { icon: Landmark, label: "Institutions & Communities" },
-  { icon: Network, label: "Remote / Offsite Workforces" },
+  { icon: Fuel, label: "Oil & Gas", note: "Offshore, onshore, and field-service teams", tone: "blue" as const },
+  { icon: HardHat, label: "Construction & Engineering", note: "Active sites, project teams, and contractors", tone: "amber" as const },
+  { icon: Factory, label: "Mining & Exploration", note: "Remote operations and exploration crews", tone: "teal" as const },
+  { icon: Truck, label: "Logistics & Transport", note: "Drivers, route teams, and warehouses", tone: "green" as const },
+  { icon: RadioTower, label: "Telecommunications & Infrastructure", note: "Field engineers and infrastructure crews", tone: "blue" as const },
+  { icon: Building2, label: "Corporate Organizations", note: "Wellness, screening, and staff health days", tone: "maroon" as const },
+  { icon: Landmark, label: "Institutions & Communities", note: "Organised groups and community programmes", tone: "amber" as const },
+  { icon: Network, label: "Remote / Offsite Workforces", note: "Teams working away from routine clinical access", tone: "teal" as const },
 ];
 
 export default function PartnerLogos() {
   return (
-    <section id="who-we-serve" className="scroll-mt-24 border-y border-gray-100 bg-white py-16">
+    <section id="who-we-serve" className="scroll-mt-24 border-y border-[#4B1E1B]/10 bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-                Who We Serve
-              </p>
-              <h2 className="text-3xl font-bold text-[#4B1E1B] sm:text-4xl">
-                Healthcare Support for Workforces That Cannot Afford Gaps
-              </h2>
-            </div>
-            <a
-              href="/corporate-inquiry"
-              className="inline-flex w-fit rounded-md border border-[#4B1E1B]/20 px-5 py-2.5 text-sm font-semibold text-[#4B1E1B] transition-colors hover:bg-[#4B1E1B]/5"
-            >
+          <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <SectionHeading
+              align="left"
+              eyebrow="Who We Serve"
+              title="Healthcare Support for Workforces That Cannot Afford Gaps"
+              description="Industrial, corporate, community, and remote teams need clinical support that understands both people and operations."
+            />
+            <CTAButton href="/corporate-inquiry" variant="secondary" className="w-fit">
               Plan Coverage
-            </a>
-          </div>
-
-          <div className="scrollbar-hide -mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
-            {sectors.map((sector) => {
-              const Icon = sector.icon;
-
-              return (
-                <div
-                  key={sector.label}
-                  className="flex min-h-[88px] min-w-[230px] snap-start items-center gap-3 rounded-lg border border-gray-100 bg-[#FAFBFC] px-4 py-4 text-sm font-semibold text-[#4B1E1B] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#4B1E1B]/20 hover:bg-white hover:shadow-sm lg:min-w-0"
-                >
-                  <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-[#4B1E1B]/10">
-                    <Icon className="h-4 w-4" />
-                  </span>
-                  {sector.label}
-                </div>
-              );
-            })}
+            </CTAButton>
           </div>
         </ScrollReveal>
+
+        <div className="scrollbar-hide -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
+          {sectors.map((sector, index) => {
+            const Icon = sector.icon;
+
+            return (
+              <ScrollReveal key={sector.label} delay={index * 0.04}>
+                <PremiumCard className="group flex min-h-[154px] min-w-[250px] snap-start flex-col p-5 lg:min-w-0">
+                  <div className="mb-4 flex items-start justify-between gap-4">
+                    <IconBadge icon={Icon} tone={sector.tone} />
+                    <span className="rounded-full bg-[#4B1E1B]/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#4B1E1B]/60">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="text-sm font-semibold leading-snug text-[#4B1E1B]">{sector.label}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-gray-500">{sector.note}</p>
+                </PremiumCard>
+              </ScrollReveal>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

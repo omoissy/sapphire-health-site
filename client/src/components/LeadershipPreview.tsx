@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import LeadershipCard from "@/components/ui/leadership-card";
+import SectionHeading from "@/components/ui/section-heading";
 
 const leaders = [
   {
@@ -12,7 +14,7 @@ const leaders = [
       "Provides executive leadership across service strategy, client relationships, clinical standards, and long-term growth. Her focus is keeping Sapphire Health positioned as a dependable healthcare partner for organizations, communities, and field teams.",
   },
   {
-    initials: "SC",
+    initials: "ES",
     name: "Dr. Ezenwali Somtochukwu Cynthia",
     title: "Chief Operating Officer",
     summary: "Oversees daily operations, field readiness, staffing, procurement, and service delivery.",
@@ -56,14 +58,11 @@ export default function LeadershipPreview() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-                Meet the Leadership
-              </span>
-              <h2 className="text-3xl font-bold text-[#4B1E1B] sm:text-4xl">
-                Clinical Governance with Operational Discipline
-              </h2>
-            </div>
+            <SectionHeading
+              align="left"
+              eyebrow="Meet the Leadership"
+              title="Clinical Governance with Operational Discipline"
+            />
             <p className="max-w-md text-sm leading-relaxed text-gray-500">
               Short leadership profiles stay compact on the homepage. Full details open only when needed.
             </p>
@@ -73,27 +72,7 @@ export default function LeadershipPreview() {
         <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
           {leaders.map((leader, index) => (
             <ScrollReveal key={leader.name} delay={index * 0.06}>
-              <article className="group flex h-full min-h-[278px] min-w-[78vw] snap-start flex-col rounded-lg border border-gray-100 bg-[#FAFBFC] p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#4B1E1B]/20 hover:bg-white hover:shadow-md sm:min-w-[330px] lg:min-w-0">
-                <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-lg bg-[#4B1E1B] text-lg font-bold text-white">
-                  {leader.initials}
-                </div>
-                <h3 className="text-base font-semibold leading-snug text-[#4B1E1B]">
-                  {leader.name}
-                </h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-                  {leader.title}
-                </p>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-gray-500">
-                  {leader.summary}
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setActiveLeader(leader)}
-                  className="mt-5 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-[#4B1E1B] transition-colors hover:text-[#9E3C34]"
-                >
-                  View Profile <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-              </article>
+              <LeadershipCard {...leader} onViewProfile={() => setActiveLeader(leader)} />
             </ScrollReveal>
           ))}
         </div>
@@ -108,7 +87,7 @@ export default function LeadershipPreview() {
           onClick={() => setActiveLeader(null)}
         >
           <div
-            className="w-full max-w-xl rounded-lg bg-white p-6 shadow-2xl sm:p-8"
+            className="w-full max-w-xl rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-6 flex items-start justify-between gap-4">

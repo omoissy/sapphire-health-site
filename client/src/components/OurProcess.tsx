@@ -1,84 +1,92 @@
-import { motion } from "framer-motion";
-import { MessageSquare, FileSearch, Users, BarChart3, CheckCircle } from "lucide-react";
+import { Activity, ClipboardCheck, FileSearch, HeartPulse, MapPin, MessageSquare, ShieldCheck } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import IconBadge from "@/components/ui/icon-badge";
+import PremiumCard from "@/components/ui/premium-card";
+import SectionHeading from "@/components/ui/section-heading";
 
 const steps = [
   {
-    icon: MessageSquare,
-    step: "01",
-    title: "Initial Enquiry",
-    description:
-      "We confirm your site, headcount, duration, risk profile, and timeline.",
-  },
-  {
     icon: FileSearch,
+    step: "01",
+    title: "Assessment",
+    description: "Confirm site, headcount, risk profile, location, and urgency.",
+    tone: "blue" as const,
+  },
+  {
+    icon: ClipboardCheck,
     step: "02",
-    title: "Assess & Scope",
-    description:
-      "Our clinical team maps the required service scope, staffing plan, equipment, and documentation.",
+    title: "Planning",
+    description: "Scope staffing, equipment, reports, referral routes, and readiness needs.",
+    tone: "teal" as const,
   },
   {
-    icon: Users,
+    icon: MapPin,
     step: "03",
-    title: "Mobilise Team",
-    description:
-      "Approved teams are briefed, equipped, and deployed for on-site coverage or mobile clinic delivery.",
+    title: "Deployment",
+    description: "Briefed medical teams and supplies are mobilised to the worksite.",
+    tone: "amber" as const,
   },
   {
-    icon: BarChart3,
+    icon: HeartPulse,
     step: "04",
-    title: "Report & Improve",
-    description:
-      "You receive structured records, incident notes, outcomes, and recommendations after delivery.",
+    title: "Medical Support",
+    description: "On-site care, screening, monitoring, education, and documentation.",
+    tone: "maroon" as const,
+  },
+  {
+    icon: Activity,
+    step: "05",
+    title: "Escalation",
+    description: "Emergency response, stabilisation, referral, and coordination when needed.",
+    tone: "green" as const,
+  },
+  {
+    icon: MessageSquare,
+    step: "06",
+    title: "Reporting",
+    description: "Structured incident notes, service summaries, and workforce health records.",
+    tone: "blue" as const,
+  },
+  {
+    icon: ShieldCheck,
+    step: "07",
+    title: "Review",
+    description: "Recommendations that improve future readiness and workforce health planning.",
+    tone: "teal" as const,
   },
 ];
 
 export default function OurProcess() {
   return (
-    <section className="py-20 bg-[#F5F7FA]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#F7F4F3] py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold tracking-widest text-[#9E3C34] uppercase mb-3">
-              How We Work
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#4B1E1B] mb-4">
-              From Enquiry to Deployment in Days, Not Weeks
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              A compact process keeps decisions moving without burying visitors in operational detail.
-            </p>
-          </div>
+          <SectionHeading
+            className="mb-12"
+            eyebrow="How Sapphire Works"
+            title="A Clear Clinical Flow from Assessment to Review"
+            description="The process is compact on the page but structured enough for corporate, field, and community medical engagements."
+          />
         </ScrollReveal>
 
         <div className="relative">
-          {/* Connector line (desktop) */}
-          <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#4B1E1B]/20 to-transparent" />
-
-          <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
-            {steps.map((step, i) => {
+          <div className="absolute left-8 right-8 top-10 hidden h-px bg-gradient-to-r from-transparent via-[#4B1E1B]/20 to-transparent lg:block" />
+          <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-7 lg:overflow-visible lg:px-0">
+            {steps.map((step, index) => {
               const Icon = step.icon;
+
               return (
-                <ScrollReveal key={step.step} delay={i * 0.1}>
-                  <motion.div
-                    whileHover={{ y: -3 }}
-                    className="relative min-h-[240px] min-w-[78vw] snap-start rounded-lg border border-gray-100 bg-white p-6 transition-all duration-300 hover:border-[#4B1E1B]/20 hover:shadow-md sm:min-w-[330px] lg:min-w-0"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md bg-[#4B1E1B]">
-                        <Icon className="h-5 w-5 text-white" />
-                      </div>
-                      <span className="text-4xl font-black text-[#4B1E1B]/10 leading-none mt-1">
+                <ScrollReveal key={step.step} delay={index * 0.05}>
+                  <PremiumCard className="relative min-h-[246px] min-w-[238px] snap-start p-5 lg:min-w-0">
+                    <div className="mb-5 flex items-start justify-between gap-3">
+                      <IconBadge icon={Icon} tone={step.tone} />
+                      <span className="text-3xl font-black leading-none text-[#4B1E1B]/10">
                         {step.step}
                       </span>
                     </div>
-                    <h3 className="font-semibold text-[#4B1E1B] mt-4 mb-2">{step.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
-                    <div className="mt-4 flex items-center gap-1.5 text-xs text-[#9E3C34] font-medium">
-                      <CheckCircle className="w-3.5 h-3.5" />
-                      Step {step.step}
-                    </div>
-                  </motion.div>
+                    <h3 className="font-semibold text-[#4B1E1B]">{step.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-gray-500">{step.description}</p>
+                  </PremiumCard>
                 </ScrollReveal>
               );
             })}

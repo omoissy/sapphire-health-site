@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACT_INFO } from "@/config/contact";
+import SapphireLogo from "@/components/SapphireLogo";
 
 type NavLink = {
   label: string;
@@ -102,14 +103,8 @@ export default function PublicNav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/">
-            <span className="flex cursor-pointer items-center gap-2.5">
-              <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-[#4B1E1B]">
-                <span className="text-sm font-bold text-white">SH</span>
-              </span>
-              <span className="leading-tight">
-                <span className="block text-sm font-bold text-[#4B1E1B]">Sapphire Health</span>
-                <span className="-mt-0.5 block text-[10px] text-gray-500">Services Limited</span>
-              </span>
+            <span className="flex cursor-pointer items-center">
+              <SapphireLogo imageBoxClassName="h-11 w-11" />
             </span>
           </Link>
 

@@ -77,16 +77,19 @@ const serviceMedia = [
     src: "/images/sapphire/sapphire-onsite-healthcare-card.jpg",
     alt: "On-site occupational health screening by Sapphire Health",
     label: "Workforce Screening",
+    objectPosition: "center center",
   },
   {
     src: "/images/sapphire/sapphire-industrial-response-card.jpg",
     alt: "Sapphire Health emergency readiness support at an industrial site",
     label: "Emergency Readiness",
+    objectPosition: "center 45%",
   },
   {
     src: "/images/sapphire/sapphire-team-ppe-field-card.jpg",
     alt: "Sapphire Health professional in PPE at a field operation",
     label: "Field Deployment",
+    objectPosition: "center center",
   },
 ];
 
@@ -113,12 +116,13 @@ export default function Services() {
             {serviceMedia.map((item) => (
               <figure
                 key={item.label}
-                className="relative h-56 overflow-hidden rounded-lg border border-gray-100 bg-[#4B1E1B]"
+                className="relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-100 bg-[#4B1E1B]"
               >
                 <img
                   src={item.src}
                   alt={item.alt}
                   className="h-full w-full object-cover"
+                  style={{ objectPosition: item.objectPosition }}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1A0D0C]/78 via-[#1A0D0C]/10 to-transparent" />

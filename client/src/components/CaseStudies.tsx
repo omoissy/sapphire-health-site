@@ -1,13 +1,49 @@
-import { Building2, CheckCircle2, Trophy, Users2 } from "lucide-react";
+import { Building2, Factory, Fuel, Landmark, ShieldCheck, Trophy, Users2 } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const supportedGroups = [
-  "Seplat Inc.",
-  "Ceplax Staff",
-  "Midwestern Staff",
-  "GetOil Integrated Services-related field personnel",
-  "Community and institutional groups",
-  "Event and competition medical support groups",
+  {
+    initials: "SE",
+    name: "Seplat Inc.",
+    context: "Staff and workforce groups connected to energy and field operations.",
+    category: "Corporate / industrial",
+    icon: Fuel,
+  },
+  {
+    initials: "CX",
+    name: "Ceplax Staff",
+    context: "Staff support context represented as a named workforce group.",
+    category: "Workforce group",
+    icon: Building2,
+  },
+  {
+    initials: "MW",
+    name: "Midwestern Staff",
+    context: "Workforce groups connected to oil and gas operating environments.",
+    category: "Industrial workforce",
+    icon: Factory,
+  },
+  {
+    initials: "GO",
+    name: "GetOil Integrated Services-related field personnel",
+    context: "Field personnel connected to oilfield service and operational settings.",
+    category: "Field personnel",
+    icon: ShieldCheck,
+  },
+  {
+    initials: "CI",
+    name: "Community and institutional groups",
+    context: "Organised community, faith, education, and institutional service contexts.",
+    category: "Community / institutional",
+    icon: Landmark,
+  },
+  {
+    initials: "EC",
+    name: "Event and competition medical support groups",
+    context: "On-site medical support contexts for events, programmes, and competitions.",
+    category: "Events / competitions",
+    icon: Trophy,
+  },
 ];
 
 const capabilities = [
@@ -51,7 +87,7 @@ export default function CaseStudies() {
                 <img
                   src="/images/sapphire/sapphire-industrial-response-card.jpg"
                   alt="Sapphire Health field safety and emergency readiness support"
-                  className="h-64 w-full object-cover"
+                  className="aspect-[4/3] w-full object-cover object-[center_45%]"
                   loading="lazy"
                 />
               </figure>
@@ -59,18 +95,40 @@ export default function CaseStudies() {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <div className="rounded-lg border border-gray-100 bg-white p-6 shadow-sm sm:p-8">
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {supportedGroups.map((group) => (
-                  <div
-                    key={group}
-                    className="flex items-start gap-3 rounded-lg border border-gray-100 bg-[#FAFBFC] px-4 py-3 text-sm font-semibold text-[#4B1E1B]"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#9E3C34]" />
-                    {group}
-                  </div>
-                ))}
+            <div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {supportedGroups.map((group) => {
+                  const Icon = group.icon;
+
+                  return (
+                    <article
+                      key={group.name}
+                      className="group flex min-h-[154px] flex-col justify-between rounded-lg border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[#4B1E1B]/20 hover:shadow-md"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md border border-[#4B1E1B]/10 bg-[#FAFBFC] text-sm font-bold text-[#4B1E1B]">
+                          {group.initials}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400">
+                            {group.category}
+                          </p>
+                          <h3 className="mt-1 text-sm font-semibold leading-snug text-[#4B1E1B]">
+                            {group.name}
+                          </h3>
+                        </div>
+                      </div>
+                      <div className="mt-4 flex items-start gap-2 border-t border-gray-100 pt-3 text-xs leading-relaxed text-gray-500">
+                        <Icon className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#9E3C34]" />
+                        <p>{group.context}</p>
+                      </div>
+                    </article>
+                  );
+                })}
               </div>
+              <p className="mt-5 rounded-md border border-gray-200 bg-white px-4 py-3 text-xs leading-relaxed text-gray-500">
+                Logos and names are used only to represent workforce groups, service contexts, or related engagements where applicable. They do not necessarily imply direct contractual partnership unless stated.
+              </p>
             </div>
           </ScrollReveal>
         </div>

@@ -30,7 +30,7 @@ export default function PartnerLogos() {
             <img
               src="/images/sapphire/sapphire-team-ppe-field-banner.jpg"
               alt="Sapphire Health field healthcare support for industrial workforces"
-              className="h-64 w-full object-cover sm:h-80 lg:h-[360px]"
+              className="aspect-[2/1] w-full object-cover object-center"
               loading="lazy"
             />
           </figure>

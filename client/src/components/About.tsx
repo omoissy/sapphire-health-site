@@ -77,7 +77,7 @@ export default function About() {
                 <img
                   src="/images/sapphire/sapphire-onsite-healthcare-card.jpg"
                   alt="Sapphire Health on-site occupational health screening"
-                  className="h-72 w-full object-cover sm:h-80"
+                  className="aspect-[4/3] w-full object-cover object-center"
                   loading="lazy"
                 />
               </figure>

@@ -27,14 +27,17 @@ const proofImages = [
   {
     src: "/images/sapphire/sapphire-field-medical-thumb.jpg",
     alt: "Sapphire Health field medical team at an industrial operation",
+    objectPosition: "center 35%",
   },
   {
     src: "/images/sapphire/sapphire-onsite-healthcare-thumb.jpg",
     alt: "Sapphire Health on-site workforce health screening",
+    objectPosition: "center center",
   },
   {
     src: "/images/sapphire/sapphire-team-ppe-field-thumb.jpg",
     alt: "Sapphire Health field healthcare professional in PPE",
+    objectPosition: "center 38%",
   },
 ];
 
@@ -56,15 +59,20 @@ export default function Testimonials() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.06}>
-          <div className="mb-10 grid grid-cols-3 gap-3">
+          <div className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {proofImages.map((image) => (
-              <img
+              <figure
                 key={image.src}
-                src={image.src}
-                alt={image.alt}
-                className="h-28 w-full rounded-md border border-white/10 object-cover sm:h-36"
-                loading="lazy"
-              />
+                className="aspect-[4/3] overflow-hidden rounded-md border border-white/10 bg-white/5"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="h-full w-full object-cover"
+                  style={{ objectPosition: image.objectPosition }}
+                  loading="lazy"
+                />
+              </figure>
             ))}
           </div>
         </ScrollReveal>

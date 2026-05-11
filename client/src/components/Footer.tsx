@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { CONTACT_INFO } from "@/config/contact";
+import SapphireLogo from "@/components/SapphireLogo";
 
 const footerLinks = {
   Services: [
@@ -49,15 +50,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
         <div className="mb-12 grid grid-cols-1 gap-10 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <div className="mb-5 flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-md border border-white/10 bg-[#4B1E1B]">
-                <span className="text-sm font-bold text-white">SH</span>
-              </div>
-              <div>
-                <p className="text-sm font-bold text-white">Sapphire Health Services</p>
-                <p className="text-[10px] text-white/40">Limited</p>
-              </div>
-            </div>
+            <SapphireLogo
+              tone="light"
+              variant="lockup"
+              className="mb-5"
+              imageBoxClassName="h-24 w-44 border-white/10 p-3"
+              showText={false}
+            />
             <p className="mb-6 max-w-sm text-sm leading-relaxed text-white/60">
               Professional healthcare support for organizations, communities, events, and remote workforces that need care closer to where work happens.
             </p>

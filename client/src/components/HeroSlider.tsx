@@ -29,7 +29,7 @@ export default function HeroSlider() {
       <img
         src={heroImage}
         alt="Sapphire Health medical team and mobile clinic support"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover object-[58%_center]"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#1A0D0C]/95 via-[#4B1E1B]/86 to-[#4B1E1B]/35" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:72px_72px] opacity-20" />

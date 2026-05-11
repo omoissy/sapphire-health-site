@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CONTACT_INFO } from "@/config/contact";
+import SapphireLogo from "@/components/SapphireLogo";
 
 type ContactForm = {
   name: string;
@@ -105,6 +106,17 @@ export default function Contact() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           <ScrollReveal direction="left">
             <div className="space-y-6">
+              <div className="rounded-lg border border-gray-100 bg-[#FAFBFC] p-5">
+                <SapphireLogo
+                  variant="lockup"
+                  imageBoxClassName="h-24 w-44 p-3"
+                  showText={false}
+                />
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-600">
+                  Clinical support, emergency readiness, and workforce health coordination for organizations that need care closer to operations.
+                </p>
+              </div>
+
               {contactDetails.map((detail) => {
                 const Icon = detail.icon;
 

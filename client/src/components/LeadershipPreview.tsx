@@ -9,33 +9,38 @@ const leaders = [
     initials: "OM",
     name: "Dr. Oluwasanmi Oluwatobi Mercy",
     title: "Chief Executive Officer",
-    summary: "Leads Sapphire's strategic direction, clinical quality, partnerships, and growth.",
+    specialty: "Pediatrics",
+    experience: "10+ years",
+    summary:
+      "Pediatrician and healthcare leader with over 10 years of experience guiding Sapphire's clinical vision, partnerships, and commitment to accessible workforce healthcare.",
     profile:
-      "Provides executive leadership across service strategy, client relationships, clinical standards, and long-term growth. Her focus is keeping Sapphire Health positioned as a dependable healthcare partner for organizations, communities, and field teams.",
+      "Dr. Oluwasanmi Oluwatobi Mercy is a pediatrician and healthcare leader with over a decade of experience in clinical care, patient advocacy, and healthcare service delivery. As Chief Executive Officer of Sapphire Health Services Limited, she leads the company's strategic direction, clinical standards, partnership development, and long-term vision. Her leadership is rooted in the belief that quality healthcare should not be limited by geography, especially for employees and communities working in remote, industrial, or offsite environments. Through Sapphire Health, she is building a model of care that combines clinical reliability, prevention, compassion, and operational readiness.",
   },
   {
     initials: "ES",
     name: "Dr. Ezenwali Somtochukwu Cynthia",
     title: "Chief Operating Officer",
-    summary: "Oversees daily operations, field readiness, staffing, procurement, and service delivery.",
+    specialty: "Internal Medicine",
+    experience: "10+ years",
+    imageSrc: "/images/team/dr-somto-coo.jpg",
+    imagePosition: "center top",
+    summary:
+      "Internal medicine physician with over 10 years of experience supporting Sapphire's operations, field readiness, clinical coordination, and service delivery.",
     profile:
-      "Coordinates the operational systems that move Sapphire from enquiry to safe deployment. Her work covers staffing readiness, logistics, field coordination, supplier planning, and delivery quality across client engagements.",
+      "Dr. Ezenwali Somtochukwu Cynthia is an internal medicine physician with a cardiology subspecialty focus and over 10 years of experience in clinical practice and healthcare operations. As Chief Operating Officer of Sapphire Health Services Limited, she oversees day-to-day service delivery, field readiness, staffing coordination, procurement, and operational quality. Her work ensures that Sapphire's medical teams are prepared, professional, and responsive across corporate, community, and remote workforce environments. She brings a strong clinical foundation and operational discipline to Sapphire's mission of bringing dependable healthcare closer to where people work.",
   },
   {
     initials: "OI",
     name: "Omoniyi Israel",
     title: "Head of Strategy, Finance & Technology",
-    summary: "Leads digital strategy, finance, website systems, growth planning, and technology integration.",
+    specialty: "Strategy, Finance & Data",
+    experience: "Field operations",
+    imageSrc: "/images/team/omoniyi-israel-strategy.jpg",
+    imagePosition: "center top",
+    summary:
+      "Petroleum engineer and data science professional leading Sapphire's strategy, finance, technology systems, digital growth, and corporate positioning.",
     profile:
-      "Builds the planning and technology layer behind Sapphire's growth. His remit includes financial structure, digital systems, service positioning, operational data, and the tools that make the company easier for clients to engage.",
-  },
-  {
-    initials: "AS",
-    name: "Dr. Oluwasanmi Ademola Samuel",
-    title: "Medical Director",
-    summary: "Provides clinical oversight, medical governance, and service quality assurance.",
-    profile:
-      "Oversees medical governance, clinical protocols, service quality, and care standards. His role helps ensure every engagement is clinically responsible, properly documented, and aligned with Sapphire's duty of care.",
+      "Omoniyi Israel brings a multidisciplinary background across petroleum engineering, oil and gas field operations, finance, technology, and data science. He holds a B.Eng. in Chemical Engineering from Covenant University and is pursuing an M.S. in Data Science at George Washington University. With professional experience in the oil and gas sector, he understands the operational realities of field-based and remote workforces. As Head of Strategy, Finance & Technology at Sapphire Health Services Limited, he leads business strategy, digital systems, website and technology infrastructure, financial planning, proposal development, analytics, and growth positioning. His role bridges healthcare, field operations, and technology to help Sapphire scale as a modern workforce healthcare company.",
   },
 ];
 
@@ -54,24 +59,23 @@ export default function LeadershipPreview() {
   }, [activeLeader]);
 
   return (
-    <section className="bg-white py-20">
+    <section id="leadership" className="relative scroll-mt-24 overflow-hidden bg-white py-20">
+      <div className="absolute inset-x-0 top-0 h-56 bg-gradient-to-b from-[#4B1E1B]/5 to-transparent" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               align="left"
-              eyebrow="Meet the Leadership"
-              title="Clinical Governance with Operational Discipline"
+              eyebrow="Meet Our Leadership"
+              title="Clinical Leadership Backed by Strategy and Field Discipline"
+              description="A compact executive view keeps the homepage easy to scan while detailed profiles open on demand."
             />
-            <p className="max-w-md text-sm leading-relaxed text-gray-500">
-              Short leadership profiles stay compact on the homepage. Full details open only when needed.
-            </p>
           </div>
         </ScrollReveal>
 
-        <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
+        <div className="scrollbar-hide -mx-4 flex snap-x gap-5 overflow-x-auto px-4 pb-3 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0">
           {leaders.map((leader, index) => (
-            <ScrollReveal key={leader.name} delay={index * 0.06}>
+            <ScrollReveal key={leader.name} delay={index * 0.06} className="h-full">
               <LeadershipCard {...leader} onViewProfile={() => setActiveLeader(leader)} />
             </ScrollReveal>
           ))}
@@ -87,33 +91,66 @@ export default function LeadershipPreview() {
           onClick={() => setActiveLeader(null)}
         >
           <div
-            className="w-full max-w-xl rounded-2xl bg-white p-6 shadow-2xl sm:p-8"
+            className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-6 flex items-start justify-between gap-4">
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-lg bg-[#4B1E1B] text-base font-bold text-white">
-                  {activeLeader.initials}
-                </div>
-                <div>
-                  <h3 id="leadership-profile-title" className="text-xl font-bold text-[#4B1E1B]">
-                    {activeLeader.name}
-                  </h3>
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
-                    {activeLeader.title}
-                  </p>
-                </div>
+            <div className="grid md:grid-cols-[240px_1fr]">
+              <div className="relative min-h-[260px] overflow-hidden bg-[#4B1E1B] md:min-h-full">
+                {activeLeader.imageSrc ? (
+                  <img
+                    src={activeLeader.imageSrc}
+                    alt={`${activeLeader.name} portrait`}
+                    className="h-full w-full object-cover object-top [filter:contrast(1.04)_saturate(1.03)]"
+                    style={{ objectPosition: activeLeader.imagePosition ?? "center top" }}
+                  />
+                ) : (
+                  <div className="flex h-full min-h-[260px] w-full items-center justify-center bg-[radial-gradient(circle_at_30%_20%,rgba(240,184,176,0.28),transparent_34%),linear-gradient(145deg,#4B1E1B,#9E3C34)]">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/25 bg-white/10 text-3xl font-bold text-white shadow-2xl backdrop-blur-sm">
+                      {activeLeader.initials}
+                    </div>
+                  </div>
+                )}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1A0D0C]/75 to-transparent" />
               </div>
-              <button
-                type="button"
-                onClick={() => setActiveLeader(null)}
-                className="rounded-md p-2 text-gray-400 transition-colors hover:bg-gray-100 hover:text-[#4B1E1B]"
-                aria-label="Close profile"
-              >
-                <X className="h-5 w-5" />
-              </button>
+
+              <div className="p-6 sm:p-8">
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9E3C34]">
+                      Leadership Profile
+                    </p>
+                    <h3 id="leadership-profile-title" className="mt-2 text-2xl font-bold text-[#4B1E1B]">
+                      {activeLeader.name}
+                    </h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-[#9E3C34]">
+                      {activeLeader.title}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setActiveLeader(null)}
+                    className="rounded-md p-2 text-gray-400 transition-colors hover:bg-gray-100 hover:text-[#4B1E1B]"
+                    aria-label="Close profile"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                </div>
+
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {activeLeader.specialty ? (
+                    <span className="rounded-full bg-[#4B1E1B]/5 px-3 py-1 text-xs font-medium text-[#4B1E1B]">
+                      {activeLeader.specialty}
+                    </span>
+                  ) : null}
+                  {activeLeader.experience ? (
+                    <span className="rounded-full bg-[#D9A441]/10 px-3 py-1 text-xs font-medium text-[#6B4B0B]">
+                      {activeLeader.experience}
+                    </span>
+                  ) : null}
+                </div>
+                <p className="text-sm leading-relaxed text-gray-600">{activeLeader.profile}</p>
+              </div>
             </div>
-            <p className="text-sm leading-relaxed text-gray-600">{activeLeader.profile}</p>
           </div>
         </div>
       ) : null}

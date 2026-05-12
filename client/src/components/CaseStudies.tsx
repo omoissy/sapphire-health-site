@@ -4,10 +4,10 @@ import SectionHeading from "@/components/ui/section-heading";
 
 const supportedGroups = [
   {
-    initials: "SE",
     name: "Seplat Energy",
     context: "Staff and workforce groups connected to energy and field operations.",
-    sourceLabel: "Text card",
+    logoSrc: "/images/logos/seplat-energy-logo.png",
+    sourceLabel: "EITI profile",
   },
   {
     initials: "CX",
@@ -71,9 +71,6 @@ export default function CaseStudies() {
               ))}
             </div>
           </div>
-          <p className="mx-auto mt-6 max-w-4xl rounded-xl border border-[#4B1E1B]/10 bg-white px-5 py-4 text-center text-xs leading-relaxed text-gray-500 shadow-sm">
-            Names and logos are used to represent workforce groups, service contexts, or related engagements where applicable. They do not necessarily imply direct contractual partnership unless stated.
-          </p>
         </ScrollReveal>
       </div>
     </section>

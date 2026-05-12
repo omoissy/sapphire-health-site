@@ -10,37 +10,37 @@ const leaders = [
     name: "Dr. Oluwasanmi Oluwatobi Mercy",
     title: "Chief Executive Officer",
     specialty: "Pediatrics",
-    experience: "10+ years",
+    experience: "Over 10 years",
     summary:
-      "Pediatrician and healthcare leader with over 10 years of experience guiding Sapphire's clinical vision, partnerships, and commitment to accessible workforce healthcare.",
+      "Pediatrician and healthcare leader with over 10 years of experience, guiding Sapphire's clinical vision, partnerships, and mission to make quality healthcare accessible to workforces wherever they operate.",
     profile:
-      "Dr. Oluwasanmi Oluwatobi Mercy is a pediatrician and healthcare leader with over a decade of experience in clinical care, patient advocacy, and healthcare service delivery. As Chief Executive Officer of Sapphire Health Services Limited, she leads the company's strategic direction, clinical standards, partnership development, and long-term vision. Her leadership is rooted in the belief that quality healthcare should not be limited by geography, especially for employees and communities working in remote, industrial, or offsite environments. Through Sapphire Health, she is building a model of care that combines clinical reliability, prevention, compassion, and operational readiness.",
+      "Dr. Oluwasanmi Oluwatobi Mercy is a seasoned pediatrician and healthcare leader with over 10 years of experience in clinical care, patient advocacy, and healthcare service delivery. As Chief Executive Officer of Sapphire Health Services Limited, she provides the strategic vision behind the company's mission to bring reliable, proactive, and compassionate healthcare closer to employees, organizations, and communities.\n\nHer leadership combines medical expertise with a strong commitment to access, prevention, and service quality. She oversees Sapphire's clinical governance direction, ethical standards, stakeholder relationships, and long-term growth strategy. Under her leadership, Sapphire Health is positioned as an emerging force in corporate and remote workforce healthcare, helping organizations protect their most valuable asset - their people.\n\nDr. Tobi's work is driven by a simple conviction: geography should never determine the quality of care a person receives. Through Sapphire Health, she continues to champion a model of healthcare that is responsive, people-centered, and built for the realities of modern work.",
   },
   {
     initials: "ES",
     name: "Dr. Ezenwali Somtochukwu Cynthia",
     title: "Chief Operating Officer",
     specialty: "Internal Medicine",
-    experience: "10+ years",
+    experience: "Over 10 years",
     imageSrc: "/images/team/dr-somto-coo.jpg",
     imagePosition: "center top",
     summary:
-      "Internal medicine physician with over 10 years of experience supporting Sapphire's operations, field readiness, clinical coordination, and service delivery.",
+      "Internal medicine physician with a cardiology subspecialty focus and over 10 years of experience, leading Sapphire's clinical operations, quality assurance, and field readiness.",
     profile:
-      "Dr. Ezenwali Somtochukwu Cynthia is an internal medicine physician with a cardiology subspecialty focus and over 10 years of experience in clinical practice and healthcare operations. As Chief Operating Officer of Sapphire Health Services Limited, she oversees day-to-day service delivery, field readiness, staffing coordination, procurement, and operational quality. Her work ensures that Sapphire's medical teams are prepared, professional, and responsive across corporate, community, and remote workforce environments. She brings a strong clinical foundation and operational discipline to Sapphire's mission of bringing dependable healthcare closer to where people work.",
+      "Dr. Ezenwali Somtochukwu Cynthia is an experienced internal medicine physician with a cardiology subspecialty focus and over 10 years of clinical and operational healthcare experience. As Chief Operating Officer of Sapphire Health Services Limited, she brings strong medical judgment, operational discipline, and quality-focused leadership to the company's service delivery model.\n\nShe oversees Sapphire's day-to-day healthcare operations, clinical quality assurance, field readiness, staffing coordination, procurement, SOP implementation, and service delivery standards. Her role ensures that Sapphire's medical teams are prepared, responsive, and capable of delivering safe, reliable, and professional healthcare across corporate, community, industrial, and remote workforce environments.\n\nWith her background in internal medicine and cardiovascular care, Dr. Somto brings a strong understanding of adult health, chronic disease management, preventive care, and emergency readiness - all critical to supporting workforces in demanding operational settings. Her leadership helps Sapphire maintain the consistency, professionalism, and clinical quality expected of a serious healthcare partner.",
   },
   {
     initials: "OI",
     name: "Omoniyi Israel",
     title: "Head of Strategy, Finance & Technology",
-    specialty: "Strategy, Finance & Data",
-    experience: "Field operations",
+    specialty: "Petroleum Engineering & Data Science",
+    experience: "Strategy, finance & growth",
     imageSrc: "/images/team/omoniyi-israel-strategy.jpg",
     imagePosition: "center top",
     summary:
-      "Petroleum engineer and data science professional leading Sapphire's strategy, finance, technology systems, digital growth, and corporate positioning.",
+      "Petroleum engineer and data science professional combining oil and gas field insight, finance, technology, and strategy to support Sapphire's growth as a modern workforce healthcare company.",
     profile:
-      "Omoniyi Israel brings a multidisciplinary background across petroleum engineering, oil and gas field operations, finance, technology, and data science. He holds a B.Eng. in Chemical Engineering from Covenant University and is pursuing an M.S. in Data Science at George Washington University. With professional experience in the oil and gas sector, he understands the operational realities of field-based and remote workforces. As Head of Strategy, Finance & Technology at Sapphire Health Services Limited, he leads business strategy, digital systems, website and technology infrastructure, financial planning, proposal development, analytics, and growth positioning. His role bridges healthcare, field operations, and technology to help Sapphire scale as a modern workforce healthcare company.",
+      "Omoniyi Israel brings a multidisciplinary background across petroleum engineering, oil and gas operations, finance, technology, and data science. He holds a B.Eng. in Chemical Engineering from Covenant University and is pursuing an M.S. in Data Science at George Washington University, combining engineering discipline with modern analytical and digital systems expertise.\n\nBefore joining Sapphire's leadership team, Israel built experience within the oil and gas sector, giving him direct insight into the realities of field operations, remote workforces, industrial safety demands, and the logistical challenges faced by companies operating outside traditional urban infrastructure. This background allows him to support Sapphire's positioning as a healthcare partner that understands the operational world its clients work in.\n\nAs Head of Strategy, Finance & Technology, Israel leads Sapphire's business strategy, financial planning, digital infrastructure, proposal development, analytics, brand positioning, and growth systems. His role bridges healthcare delivery with technology, data, and industrial workforce strategy - helping Sapphire build the structure, visibility, and operational intelligence needed to scale as a premium corporate healthcare provider.",
   },
 ];
 
@@ -68,7 +68,7 @@ export default function LeadershipPreview() {
               align="left"
               eyebrow="Meet Our Leadership"
               title="Clinical Leadership Backed by Strategy and Field Discipline"
-              description="A compact executive view keeps the homepage easy to scan while detailed profiles open on demand."
+              description="Sapphire's clinical governance is led by experienced physicians, while its strategy, finance, and technology systems are supported by multidisciplinary expertise across healthcare, field operations, energy, and data."
             />
           </div>
         </ScrollReveal>
@@ -148,7 +148,11 @@ export default function LeadershipPreview() {
                     </span>
                   ) : null}
                 </div>
-                <p className="text-sm leading-relaxed text-gray-600">{activeLeader.profile}</p>
+                <div className="space-y-4 text-sm leading-relaxed text-gray-600">
+                  {activeLeader.profile.split("\n\n").map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

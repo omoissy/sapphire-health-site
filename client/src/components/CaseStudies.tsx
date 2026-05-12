@@ -5,39 +5,19 @@ import SectionHeading from "@/components/ui/section-heading";
 const supportedGroups = [
   {
     name: "Seplat Energy",
-    context: "Staff and workforce groups connected to energy and field operations.",
     logoSrc: "/images/logos/seplat-energy-logo.png",
-    sourceLabel: "EITI profile",
-  },
-  {
-    initials: "CX",
-    name: "Ceplax Staff",
-    context: "Staff support context represented as a named workforce group.",
-    sourceLabel: "Text card",
   },
   {
     name: "Midwestern Staff",
-    context: "Workforce groups connected to oil and gas operating environments.",
     logoSrc: "/images/logos/midwestern-oil-gas-logo.png",
-    sourceLabel: "Official website",
   },
   {
-    name: "GetOil Integrated Services-related field personnel",
-    context: "Field personnel connected to oilfield service and operational settings.",
+    name: "GetOil Integrated Services",
     logoSrc: "/images/logos/getoil-integrated-logo.png",
-    sourceLabel: "Official website",
   },
   {
     name: "RCCG Community Support",
-    context: "Community and faith-based medical support contexts where applicable.",
     logoSrc: "/images/logos/rccg-logo.png",
-    sourceLabel: "Official website",
-  },
-  {
-    initials: "EC",
-    name: "Event and competition medical support groups",
-    context: "On-site medical support contexts for events, programmes, and competitions.",
-    sourceLabel: "Text card",
   },
 ];
 

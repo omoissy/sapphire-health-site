@@ -5,7 +5,6 @@ import QuickActionStrip from "@/components/QuickActionStrip";
 import PartnerLogos from "@/components/PartnerLogos";
 import Services from "@/components/Services";
 import OurProcess from "@/components/OurProcess";
-import FieldGallery from "@/components/FieldGallery";
 import CaseStudies from "@/components/CaseStudies";
 import LeadershipPreview from "@/components/LeadershipPreview";
 import Testimonials from "@/components/Testimonials";
@@ -21,10 +20,9 @@ export default function Home() {
       <main>
         <HeroSlider />
         <QuickActionStrip />
-        <PartnerLogos />
         <Services />
+        <PartnerLogos />
         <OurProcess />
-        <FieldGallery />
         <CaseStudies />
         <LeadershipPreview />
         <Testimonials />

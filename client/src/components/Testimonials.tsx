@@ -8,21 +8,21 @@ const testimonials = [
   {
     quote:
       "Excellent nurse-to-patient care, the right equipment on site, good time management, and useful health education.",
-    source: "On-site care feedback",
+    source: "GetOil Integrated Services feedback",
   },
   {
     quote: "Healthy staff, fast response, and improved morale.",
-    source: "Workforce support feedback",
+    source: "Ohaji 24-hour well stimulation operations",
   },
   {
     quote:
       "High level of professionalism, quality service, and genuine care for humanity.",
-    source: "Client service feedback",
+    source: "RCCG community medical support feedback",
   },
   {
     quote:
       "We had a reliable medical team for quality service and medical emergencies within our community.",
-    source: "Community medical support feedback",
+    source: "RCCG community support feedback",
   },
 ];
 

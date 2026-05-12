@@ -16,8 +16,8 @@ const caseStudies = [
       "Sapphire deployed a 2-person clinical team with a stocked field medical post, emergency drugs, and a direct referral line to a nearby hospital.",
     impact: ["Zero lost-time incidents", "100% crew coverage", "14-day deployment"],
     image: "/images/sapphire/sapphire-field-medical-card.jpg",
-    gradient: "from-[#1E3A5F] to-[#4A90D9]",
-    accentColor: "bg-blue-500",
+    gradient: "from-[#4B1E1B] to-[#7B2D26]",
+    accentColor: "bg-[#9E3C34]",
   },
   {
     industry: "Corporate",
@@ -28,8 +28,8 @@ const caseStudies = [
       "Sapphire designed a quarterly wellness programme including BMI checks, blood pressure screening, health education talks, and executive health risk assessments.",
     impact: ["85% participation", "30% fewer sick days", "Ongoing retainer"],
     image: "/images/sapphire/sapphire-onsite-healthcare-card.jpg",
-    gradient: "from-[#312E81] to-[#818CF8]",
-    accentColor: "bg-indigo-500",
+    gradient: "from-[#4B1E1B] to-[#7B2D26]",
+    accentColor: "bg-[#9E3C34]",
   },
   {
     industry: "Construction",
@@ -40,8 +40,8 @@ const caseStudies = [
       "Sapphire assigned dedicated medics to each site with a centralized coordination lead, standardized incident reporting, and weekly health summaries for project managers.",
     impact: ["Zero compliance gaps", "3 sites covered", "8-week engagement"],
     image: "/images/sapphire/sapphire-industrial-response-card.jpg",
-    gradient: "from-[#92400E] to-[#FBBF24]",
-    accentColor: "bg-amber-500",
+    gradient: "from-[#4B1E1B] to-[#7B2D26]",
+    accentColor: "bg-[#9E3C34]",
   },
   {
     industry: "Community",
@@ -52,8 +52,8 @@ const caseStudies = [
       "Sapphire provided a mobile screening unit, 3 nurses, a coordinating physician, and materials for blood pressure, blood sugar, and BMI checks across the event.",
     impact: ["500+ screened", "15 urgent referrals", "3-day coverage"],
     image: "/images/sapphire/sapphire-team-ppe-field-card.jpg",
-    gradient: "from-[#831843] to-[#F9A8D4]",
-    accentColor: "bg-pink-500",
+    gradient: "from-[#4B1E1B] to-[#7B2D26]",
+    accentColor: "bg-[#9E3C34]",
   },
 ];
 

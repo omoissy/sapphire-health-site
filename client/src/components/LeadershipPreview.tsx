@@ -11,6 +11,8 @@ const leaders = [
     title: "Chief Executive Officer",
     specialty: "Pediatrics",
     experience: "Over 10 years",
+    imageSrc: "/images/team/dr-tobi-ceo.jpg",
+    imagePosition: "center 30%",
     summary:
       "Pediatrician and healthcare leader with over 10 years of experience, guiding Sapphire's clinical vision, partnerships, and mission to make quality healthcare accessible to workforces wherever they operate.",
     profile:

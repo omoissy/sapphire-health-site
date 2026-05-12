@@ -28,13 +28,21 @@ export default function LeadershipCard({
     <PremiumCard className="group flex h-full min-w-[82vw] snap-start flex-col overflow-hidden p-0 sm:min-w-[340px] lg:min-w-0" elevated>
       <div className="relative aspect-[4/5] overflow-hidden bg-[#4B1E1B]">
         {imageSrc ? (
-          <img
-            src={imageSrc}
-            alt={`${name} portrait`}
-            className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03] [filter:contrast(1.04)_saturate(1.03)]"
-            style={{ objectPosition: imagePosition }}
-            loading="lazy"
-          />
+          <>
+            <img
+              src={imageSrc}
+              alt={`${name} portrait`}
+              className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+              style={{
+                objectPosition: imagePosition,
+                filter: "contrast(1.06) saturate(0.85) brightness(1.04)",
+              }}
+              loading="lazy"
+            />
+            {/* Uniform gradient overlay for photo consistency */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#4B1E1B]/10 via-transparent to-[#1A0D0C]/60" />
+            <div className="absolute inset-0 bg-[#4B1E1B]/8 mix-blend-color" />
+          </>
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_30%_20%,rgba(240,184,176,0.28),transparent_34%),linear-gradient(145deg,#4B1E1B,#9E3C34)]">
             <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/25 bg-white/10 text-3xl font-bold text-white shadow-2xl backdrop-blur-sm">

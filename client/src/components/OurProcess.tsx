@@ -115,7 +115,7 @@ function StepVisual({ type }: { type: string }) {
 const steps = [
   {
     visual: "assess",
-    gradient: "from-[#1E3A5F] via-[#2563EB] to-[#60A5FA]",
+    gradient: "from-[#4B1E1B] via-[#5C2622] to-[#7B2D26]",
     step: "01",
     title: "Site / Organization Assessment",
     short:
@@ -125,7 +125,7 @@ const steps = [
   },
   {
     visual: "plan",
-    gradient: "from-[#134E4A] via-[#0F766E] to-[#2DD4BF]",
+    gradient: "from-[#4B1E1B] via-[#5C2622] to-[#7B2D26]",
     step: "02",
     title: "Healthcare Plan Design",
     short: "Design a tailored medical support plan for your operations.",
@@ -134,7 +134,7 @@ const steps = [
   },
   {
     visual: "deploy",
-    gradient: "from-[#92400E] via-[#D97706] to-[#FCD34D]",
+    gradient: "from-[#4B1E1B] via-[#5C2622] to-[#7B2D26]",
     step: "03",
     title: "Medical Team Deployment",
     short: "Briefed clinical teams mobilised to your worksite.",
@@ -143,7 +143,7 @@ const steps = [
   },
   {
     visual: "tele",
-    gradient: "from-[#4B1E1B] via-[#9E3C34] to-[#E77C74]",
+    gradient: "from-[#4B1E1B] via-[#5C2622] to-[#7B2D26]",
     step: "04",
     title: "Telemedicine & Escalation Setup",
     short:
@@ -153,7 +153,7 @@ const steps = [
   },
   {
     visual: "report",
-    gradient: "from-[#065F46] via-[#059669] to-[#6EE7B7]",
+    gradient: "from-[#4B1E1B] via-[#5C2622] to-[#7B2D26]",
     step: "05",
     title: "Reporting, Review & Improvement",
     short: "Structured reporting and continuous care improvement.",

@@ -8,19 +8,19 @@ import SectionHeading from "@/components/ui/section-heading";
 const values = [
   {
     icon: Heart,
-    tone: "green" as const,
+    tone: "maroon" as const,
     title: "Clinical Excellence",
     description: "Every deployment is led by qualified, certified health professionals — no shortcuts, no compromises.",
   },
   {
     icon: Target,
-    tone: "blue" as const,
+    tone: "dark" as const,
     title: "Operational Precision",
     description: "We plan every engagement thoroughly so our teams are ready before your personnel arrive on site.",
   },
   {
     icon: Award,
-    tone: "amber" as const,
+    tone: "light" as const,
     title: "Clear Documentation",
     description: "Our reports, handovers, and protocols are structured so clients can review service activity with confidence.",
   },

@@ -7,37 +7,37 @@ const reasons = [
   {
     title: "Corporate-Ready Healthcare",
     desc: "Structured health programmes designed for organizations that need reliable, professional medical support.",
-    accent: "from-[#4B1E1B] to-[#9E3C34]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
   {
     title: "Flexible Deployment Models",
     desc: "On-site teams, mobile clinics, retainers, or project-based coverage — scaled to your operations.",
-    accent: "from-[#1E3A5F] to-[#3B82F6]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
   {
     title: "Telemedicine-Enabled",
     desc: "24/7 remote clinical access for workforces in hard-to-reach locations or during off-hours.",
-    accent: "from-[#134E4A] to-[#2DD4BF]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
   {
     title: "Preventive Health Focus",
     desc: "Proactive screening, wellness programmes, and chronic disease management that reduce long-term costs.",
-    accent: "from-[#065F46] to-[#34D399]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
   {
     title: "Emergency Response Readiness",
     desc: "Rapid stabilisation, evacuation coordination, and referral pathways when every minute matters.",
-    accent: "from-[#991B1B] to-[#F97316]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
   {
     title: "Clear Reporting & Analytics",
     desc: "Structured incident documentation, health data trends, and workforce health insights for leadership.",
-    accent: "from-[#312E81] to-[#818CF8]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
   {
     title: "Human-Centered Support",
     desc: "Clinical teams who treat every person with dignity, professionalism, and genuine care.",
-    accent: "from-[#831843] to-[#F9A8D4]",
+    accent: "from-[#4B1E1B] to-[#7B2D26]",
   },
 ];
 
@@ -90,9 +90,9 @@ function TrustPanel() {
         {/* Stats */}
         <div className="divide-y divide-[#4B1E1B]/8 bg-white p-2">
           {[
-            { stat: "24/7", label: "Emergency response availability", gradient: "from-[#991B1B] to-[#F97316]" },
-            { stat: "98%", label: "Client satisfaction rate", gradient: "from-[#065F46] to-[#34D399]" },
-            { stat: "48-72h", label: "Average deployment time", gradient: "from-[#1E3A5F] to-[#3B82F6]" },
+            { stat: "24/7", label: "Emergency response availability", gradient: "from-[#4B1E1B] to-[#7B2D26]" },
+            { stat: "98%", label: "Client satisfaction rate", gradient: "from-[#4B1E1B] to-[#7B2D26]" },
+            { stat: "48-72h", label: "Average deployment time", gradient: "from-[#4B1E1B] to-[#7B2D26]" },
           ].map((item) => (
             <div
               key={item.label}

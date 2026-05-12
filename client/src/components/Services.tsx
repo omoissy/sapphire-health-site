@@ -14,7 +14,10 @@ import {
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionHeading from "@/components/ui/section-heading";
 import CTAButton from "@/components/ui/cta-button";
-import IconBadge from "@/components/ui/icon-badge";
+import AnimatedServiceIcon, {
+  type AnimationVariant,
+  type AccentTone,
+} from "@/components/ui/AnimatedServiceIcon";
 
 /* ─── Category visual system ─── */
 
@@ -24,91 +27,121 @@ const categoryMeta: Record<
   Category,
   {
     label: string;
-    border: string;
     labelClass: string;
-    tone: "maroon" | "dark";
   }
 > = {
   clinical: {
     label: "Clinical Care",
-    border: "border-t-[#7B2D26]",
     labelClass: "text-[#7B2D26] bg-[#7B2D26]/8",
-    tone: "maroon",
   },
   emergency: {
     label: "Emergency & Compliance",
-    border: "border-t-[#92400E]",
     labelClass: "text-[#6B4B0B] bg-[#D9A441]/12",
-    tone: "dark",
   },
 };
 
 /* ─── Service data ─── */
 
-const services = [
+const services: {
+  icon: any;
+  category: Category;
+  title: string;
+  description: string;
+  tags: string[];
+  animation: AnimationVariant;
+  tone: AccentTone;
+  ambient?: boolean;
+  accentBorder: string;
+}[] = [
   {
     icon: Stethoscope,
-    category: "clinical" as Category,
+    category: "clinical",
     title: "On-Site Medical Support & Mobile Clinics",
     description:
       "Qualified clinical teams and mobile clinic setups for workplaces, project sites, communities, and remote operations.",
     tags: ["Field medics", "Mobile clinics", "Worksite care"],
+    animation: "float",
+    tone: "maroon",
+    ambient: true,
+    accentBorder: "border-l-[#7B2D26]",
   },
   {
     icon: Activity,
-    category: "emergency" as Category,
+    category: "emergency",
     title: "Emergency Medical Response",
     description:
       "Rapid assessment, stabilisation, escalation, referral coordination, and emergency readiness for higher-risk environments.",
     tags: ["24/7 response", "Stabilisation", "Referral"],
+    animation: "shieldGlow",
+    tone: "amber",
+    accentBorder: "border-l-[#92400E]",
   },
   {
     icon: ClipboardCheck,
-    category: "clinical" as Category,
+    category: "clinical",
     title: "Occupational Health Screening",
     description:
       "Pre-employment, pre-mobilisation, fitness-for-work, periodic medicals, and role-specific workforce screening.",
     tags: ["FFW", "Screening", "Medical reports"],
+    animation: "drawCheck",
+    tone: "maroon",
+    accentBorder: "border-l-[#7B2D26]",
   },
   {
     icon: HeartPulse,
-    category: "clinical" as Category,
+    category: "clinical",
     title: "Preventive Health & Wellness Programmes",
     description:
       "Health talks, screenings, wellness days, chronic disease risk checks, and staff education programmes.",
     tags: ["Wellness", "Prevention", "Education"],
+    animation: "heartbeat",
+    tone: "maroon",
+    ambient: true,
+    accentBorder: "border-l-[#7B2D26]",
   },
   {
     icon: Video,
-    category: "clinical" as Category,
+    category: "clinical",
     title: "Telemedicine Support",
     description:
       "Remote clinical guidance and follow-up support for workforces that need faster access to medical advice.",
     tags: ["Remote support", "Triage", "Follow-up"],
+    animation: "signal",
+    tone: "teal",
+    accentBorder: "border-l-[#0F766E]",
   },
   {
     icon: GraduationCap,
-    category: "emergency" as Category,
+    category: "emergency",
     title: "Health & Safety Training",
     description:
       "Practical first aid, emergency readiness, site health awareness, and workforce health and safety sessions.",
     tags: ["First aid", "Training", "Readiness"],
+    animation: "shieldGlow",
+    tone: "amber",
+    accentBorder: "border-l-[#92400E]",
   },
   {
     icon: FileText,
-    category: "emergency" as Category,
+    category: "emergency",
     title: "Incident Documentation & Reporting",
     description:
       "Clear medical incident records, handover notes, service reports, and operational health documentation.",
     tags: ["Reports", "Records", "Audit support"],
+    animation: "chartRise",
+    tone: "charcoal",
+    accentBorder: "border-l-[#374151]",
   },
   {
     icon: ShieldCheck,
-    category: "emergency" as Category,
+    category: "emergency",
     title: "Event / Project Medical Coverage",
     description:
       "Medical planning and standby clinical teams for corporate events, community programmes, competitions, and projects.",
     tags: ["Events", "Projects", "Coverage"],
+    animation: "crossPulse",
+    tone: "amber",
+    accentBorder: "border-l-[#92400E]",
   },
 ];
 
@@ -137,16 +170,26 @@ export default function Services() {
             return (
               <ScrollReveal key={service.title} delay={index * 0.05}>
                 <motion.div
-                  whileHover={{ y: -4 }}
+                  whileHover={{ y: -6 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   className="h-full"
                 >
                   <div
-                    className={`group relative flex h-full flex-col rounded-xl border border-[#4B1E1B]/8 border-t-[3px] ${cat.border} bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:shadow-[#4B1E1B]/8`}
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-xl border border-gray-200/80 border-l-[3px] ${service.accentBorder} bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-black/8`}
                   >
-                    {/* Icon badge + category label */}
-                    <div className="mb-4 flex items-start justify-between gap-2">
-                      <IconBadge icon={service.icon} tone={cat.tone} />
+                    {/* Shimmer overlay on hover */}
+                    <span className="card-shimmer pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-xl" />
+
+                    {/* Icon + category */}
+                    <div className="relative z-10 mb-4 flex items-start justify-between gap-2">
+                      <AnimatedServiceIcon
+                        icon={service.icon}
+                        animation={service.animation}
+                        tone={service.tone}
+                        ambient={service.ambient}
+                        size={24}
+                        strokeWidth={1.8}
+                      />
                       <span
                         className={`shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${cat.labelClass}`}
                       >
@@ -154,16 +197,16 @@ export default function Services() {
                       </span>
                     </div>
 
-                    <h3 className="text-[15px] font-bold leading-snug text-[#4B1E1B]">
+                    <h3 className="relative z-10 text-[15px] font-bold leading-snug text-[#4B1E1B]">
                       {service.title}
                     </h3>
 
-                    <p className="mt-2 flex-1 text-[13px] leading-relaxed text-gray-500">
+                    <p className="relative z-10 mt-2 flex-1 text-[13px] leading-relaxed text-gray-500">
                       {service.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="mt-4 flex flex-wrap gap-1.5">
+                    <div className="relative z-10 mt-4 flex flex-wrap gap-1.5">
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
@@ -174,11 +217,11 @@ export default function Services() {
                       ))}
                     </div>
 
-                    {/* Learn More */}
+                    {/* CTA */}
                     <Link href="/corporate-inquiry">
-                      <span className="mt-4 inline-flex cursor-pointer items-center gap-1.5 text-[13px] font-semibold text-[#9E3C34] transition-colors group-hover:text-[#4B1E1B]">
-                        Learn More
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                      <span className="relative z-10 mt-4 inline-flex cursor-pointer items-center gap-1.5 text-[13px] font-semibold text-[#9E3C34] transition-colors group-hover:text-[#4B1E1B]">
+                        Explore Service
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                       </span>
                     </Link>
                   </div>

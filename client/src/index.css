@@ -84,6 +84,10 @@ select {
   font: inherit;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Marquee                                                            */
+/* ------------------------------------------------------------------ */
+
 @keyframes proof-marquee {
   from {
     transform: translateX(0);
@@ -109,6 +113,72 @@ select {
   animation-play-state: paused;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Pulse line animation                                               */
+/* ------------------------------------------------------------------ */
+
+@keyframes pulse-line-draw {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.pulse-line-path {
+  stroke-dasharray: 1200;
+  animation: pulse-line-draw 4s linear infinite;
+}
+
+.pulse-line-svg {
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Service icon glow                                                  */
+/* ------------------------------------------------------------------ */
+
+@keyframes icon-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(158, 60, 52, 0.3));
+  }
+}
+
+.service-icon-glow {
+  transition: filter 0.3s;
+}
+
+.group:hover .service-icon-glow {
+  animation: icon-pulse 2s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Trust icon glow                                                    */
+/* ------------------------------------------------------------------ */
+
+@keyframes trust-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0px transparent;
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(158, 60, 52, 0.15);
+  }
+}
+
+.trust-icon-glow {
+  animation: trust-glow 3s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Scrollbar hide                                                     */
+/* ------------------------------------------------------------------ */
+
 .scrollbar-hide {
   scrollbar-width: none;
 }
@@ -117,12 +187,25 @@ select {
   display: none;
 }
 
+/* ------------------------------------------------------------------ */
+/*  Reduced motion                                                     */
+/* ------------------------------------------------------------------ */
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
   .proof-marquee-track {
+    animation: none;
+  }
+
+  .pulse-line-path {
+    animation: none;
+  }
+
+  .service-icon-glow,
+  .trust-icon-glow {
     animation: none;
   }
 }

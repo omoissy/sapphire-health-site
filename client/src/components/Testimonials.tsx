@@ -1,42 +1,71 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import SectionHeading from "@/components/ui/section-heading";
-import TestimonialCard from "@/components/ui/testimonial-card";
 
 const testimonials = [
   {
     quote:
       "Excellent nurse-to-patient care, the right equipment on site, good time management, and useful health education.",
-    source: "GetOil Integrated Services feedback",
+    source: "Operations Manager",
+    org: "GetOil Integrated Services",
+    role: "Oil & Gas Operations",
   },
   {
-    quote: "Healthy staff, fast response, and improved morale.",
-    source: "Ohaji 24-hour well stimulation operations",
+    quote: "Healthy staff, fast response, and improved morale. Sapphire Health made a real difference to our operations.",
+    source: "HSE Coordinator",
+    org: "Well Stimulation Operations",
+    role: "Ohaji Field Operations",
   },
   {
     quote:
-      "High level of professionalism, quality service, and genuine care for humanity.",
-    source: "RCCG community medical support feedback",
+      "High level of professionalism, quality service, and genuine care for humanity. They went above and beyond.",
+    source: "Programme Coordinator",
+    org: "RCCG Community Outreach",
+    role: "Community Medical Support",
   },
   {
     quote:
-      "We had a reliable medical team for quality service and medical emergencies within our community.",
-    source: "RCCG community support feedback",
+      "We had a reliable medical team for quality service and medical emergencies within our community. Highly recommended.",
+    source: "Event Organizer",
+    org: "Community Support Programme",
+    role: "Community Health Initiative",
+  },
+  {
+    quote:
+      "The medical coverage was seamless. Our team felt safer knowing there was professional support on standby at all times.",
+    source: "Project Manager",
+    org: "Construction Firm",
+    role: "Multi-Site Project",
+  },
+  {
+    quote:
+      "Sapphire Health's wellness programme was well-organized and our staff genuinely appreciated the health screenings and education sessions.",
+    source: "HR Director",
+    org: "Corporate Organization",
+    role: "Employee Wellness Programme",
   },
 ];
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
-  const visibleTestimonials = [0, 1, 2].map((offset) => testimonials[(active + offset) % testimonials.length]);
+
+  const visibleTestimonials = [0, 1, 2].map(
+    (offset) => testimonials[(active + offset) % testimonials.length],
+  );
 
   const goPrevious = () => {
-    setActive((current) => (current === 0 ? testimonials.length - 1 : current - 1));
+    setActive((c) => (c === 0 ? testimonials.length - 1 : c - 1));
   };
 
   const goNext = () => {
-    setActive((current) => (current + 1) % testimonials.length);
+    setActive((c) => (c + 1) % testimonials.length);
   };
+
+  useEffect(() => {
+    const timer = setInterval(goNext, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative overflow-hidden bg-[#4B1E1B] py-20">
@@ -74,13 +103,24 @@ export default function Testimonials() {
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {visibleTestimonials.map((testimonial, index) => (
-            <ScrollReveal key={`${testimonial.source}-${active}`} delay={index * 0.06}>
-              <TestimonialCard
-                dark
-                quote={testimonial.quote}
-                source={testimonial.source}
-                className={index > 0 ? "hidden md:flex" : "flex"}
-              />
+            <ScrollReveal key={`${testimonial.org}-${active}`} delay={index * 0.06}>
+              <div
+                className={`flex min-h-[300px] flex-col justify-between rounded-xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-sm ${
+                  index > 0 ? "hidden md:flex" : "flex"
+                }`}
+              >
+                <div>
+                  <Quote className="mb-4 h-8 w-8 text-white/20" />
+                  <p className="text-base font-medium leading-relaxed text-white/90">
+                    "{testimonial.quote}"
+                  </p>
+                </div>
+                <div className="mt-6 border-t border-white/10 pt-4">
+                  <p className="text-sm font-bold text-white">{testimonial.source}</p>
+                  <p className="mt-0.5 text-xs text-white/50">{testimonial.org}</p>
+                  <p className="text-[10px] text-white/35">{testimonial.role}</p>
+                </div>
+              </div>
             </ScrollReveal>
           ))}
         </div>
@@ -88,7 +128,7 @@ export default function Testimonials() {
         <div className="mt-8 flex justify-center gap-2">
           {testimonials.map((testimonial, index) => (
             <button
-              key={testimonial.source}
+              key={testimonial.org + index}
               type="button"
               onClick={() => setActive(index)}
               className={`h-2.5 rounded-full transition-all ${

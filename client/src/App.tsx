@@ -6,6 +6,8 @@ import OurApproachPage from "@/pages/OurApproachPage";
 import CareersPage from "@/pages/CareersPage";
 import OilGasPage from "@/pages/industries/OilGasPage";
 import CorporateInquiryPage from "@/pages/CorporateInquiryPage";
+import CaseStudiesPage from "@/pages/CaseStudiesPage";
+import InsightsPage from "@/pages/InsightsPage";
 
 function ScrollToHash() {
   const [location] = useLocation();
@@ -60,6 +62,8 @@ export default function App() {
         <Route path="/careers" component={CareersPage} />
         <Route path="/industries/oil-gas" component={OilGasPage} />
         <Route path="/corporate-inquiry" component={CorporateInquiryPage} />
+        <Route path="/case-studies" component={CaseStudiesPage} />
+        <Route path="/insights" component={InsightsPage} />
         <Route component={NotFound} />
       </Switch>
     </>
